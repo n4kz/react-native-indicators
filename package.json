@@ -1,10 +1,10 @@
 {
-	"name": "react-native-indicator",
+	"name": "react-native-indicators",
 	"version": "0.0.0",
 	"license": "BSD-3-Clause",
 	"author": "Alexander Nazarov <n4kz@n4kz.com>",
 
-	"description": "Activity indicator",
+	"description": "Activity indicator collection",
 	"keywords": ["react", "react-component", "react-native", "ios", "android", "activity", "indicator", "spinner"],
 
 	"main": "index.js",
