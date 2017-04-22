@@ -40,8 +40,8 @@ class Example extends Component {
 ## Example
 
 ```bash
-git clone https://github.com/n4kz/react-native-pages
-cd react-native-pages/example
+git clone https://github.com/n4kz/react-native-indicators
+cd react-native-indicators/example
 npm install
 npm run ios # or npm run android
 ```
