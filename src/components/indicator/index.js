@@ -47,7 +47,6 @@ export default class Indicator extends PureComponent {
 
     let fwd = animationDirection === 'forward';
     let bwd = animationDirection === 'backward';
-    let rev = animationDirection === 'reversible';
 
     Animated
       .sequence([
