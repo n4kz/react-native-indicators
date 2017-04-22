@@ -13,7 +13,7 @@ export default class Indicator extends PureComponent {
   static propTypes = {
     ...Animated.View.propTypes,
 
-    animationDirection: PropTypes.oneOf(['forward', 'backward']),
+    animationDirection: PropTypes.oneOf(['forward', 'backward', 'reversible']),
     animationDuration: PropTypes.number,
     animationDelay: PropTypes.number,
     fadeDuration: PropTypes.number,
@@ -45,19 +45,21 @@ export default class Indicator extends PureComponent {
       return;
     }
 
-    let forward = 'forward' === animationDirection;
+    let fwd = animationDirection === 'forward';
+    let bwd = animationDirection === 'backward';
+    let rev = animationDirection === 'reversible';
 
     Animated
       .sequence([
         Animated.timing(progress, {
-          duration: forward? animationDuration : 0,
-          delay: (this.nodelay || forward)? 0 : animationDelay,
+          duration: bwd? 0 : animationDuration,
+          delay: (fwd || this.nodelay)? 0 : animationDelay,
           easing: Easing.inOut(Easing.ease),
           toValue: 1,
         }),
         Animated.timing(progress, {
-          duration: forward? 0 : animationDuration,
-          delay: forward? animationDelay : 0,
+          duration: fwd? 0 : animationDuration,
+          delay: bwd? 0 : animationDelay,
           easing: Easing.inOut(Easing.ease),
           toValue: 0,
         }),
