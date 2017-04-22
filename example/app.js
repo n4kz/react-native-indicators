@@ -20,7 +20,19 @@ export default function init() {
 
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
-              <DotIndicator count={3} color='#1976D2' animationDuration={800} />
+              <DotIndicator
+                count={3}
+                color='#1976D2'
+                animationDuration={800}
+              />
+            </View>
+            <View style={{ flex: 1 }}>
+              <DotIndicator
+                count={3}
+                color='#303F9F'
+                animationDuration={800}
+                animationDirection='backward'
+              />
             </View>
           </View>
         </View>
