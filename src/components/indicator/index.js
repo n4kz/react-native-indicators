@@ -47,11 +47,11 @@ export default class Indicator extends PureComponent {
           duration: animationDuration,
           toValue: 1,
           easing: Easing.inOut(Easing.ease),
-          delay: animationDelay,
         }),
         Animated.timing(progress, {
           duration: 0,
           toValue: 0,
+          delay: animationDelay,
         }),
       ])
       .start(this.startAnimation);
