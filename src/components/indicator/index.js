@@ -5,14 +5,17 @@ export default class Indicator extends PureComponent {
   static defaultProps = {
     animationDuration: 1200,
     animationDelay: 200,
+    fadeDuration: 200,
     count: 1,
   };
 
   static propTypes = {
     ...Animated.View.propTypes,
 
+
     animationDuration: PropTypes.number,
     animationDelay: PropTypes.number,
+    fadeDuration: PropTypes.number,
 
     renderComponent: PropTypes.func,
     count: PropTypes.number,
@@ -55,12 +58,13 @@ export default class Indicator extends PureComponent {
   }
 
   componentDidMount() {
+    let { fadeDuration } = this.props;
     let { opacity } = this.state;
 
     this.mounted = true;
 
     Animated
-      .timing(opacity, { toValue: 1, duration: 200 })
+      .timing(opacity, { toValue: 1, duration: fadeDuration })
       .start(this.startAnimation);
   }
 
