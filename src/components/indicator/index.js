@@ -32,6 +32,9 @@ export default class Indicator extends PureComponent {
       progress: new Animated.Value(0),
       opacity: new Animated.Value(0),
     };
+
+    this.mounted = false;
+    this.nodelay = true;
   }
 
   startAnimation() {
@@ -48,7 +51,7 @@ export default class Indicator extends PureComponent {
       .sequence([
         Animated.timing(progress, {
           duration: forward? animationDuration : 0,
-          delay: forward? 0 : animationDelay,
+          delay: (this.nodelay || forward)? 0 : animationDelay,
           easing: Easing.inOut(Easing.ease),
           toValue: 1,
         }),
@@ -60,6 +63,8 @@ export default class Indicator extends PureComponent {
         }),
       ])
       .start(this.startAnimation);
+
+    this.nodelay = false;
   }
 
   componentDidMount() {
