@@ -14,7 +14,6 @@ Activity indicator collection for React Native
 
 * Bar indicator
 * Circle indicator
-* Example project
 
 ## Installation
 
@@ -36,6 +35,17 @@ class Example extends Component {
   }
 }
 ```
+## Properties
+
+ name               | description                   | type     | default
+:------------------ |:----------------------------- | --------:|:-------
+ fadeDuration       | Fade animation duration in ms |   Number | 200
+ animationDelay     | Animation delay in ms         |   Number | 200
+ animationDuration  | Animation duration in ms      |   Number | 1200
+ animationDirection | Animation direction           |   String | forward
+ count              | Component count               |   Number | 1
+
+Possible values for `animationDirection` are `forward`, `backward` and `reversible`
 
 ## Example
 
