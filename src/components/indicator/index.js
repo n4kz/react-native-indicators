@@ -3,6 +3,7 @@ import { Animated, Easing } from 'react-native';
 
 export default class Indicator extends PureComponent {
   static defaultProps = {
+    animationEasing: Easing.linear,
     animationDirection: 'forward',
     animationDuration: 1200,
     animationDelay: 200,
@@ -13,6 +14,7 @@ export default class Indicator extends PureComponent {
   static propTypes = {
     ...Animated.View.propTypes,
 
+    animationEasing: PropTypes.func,
     animationDirection: PropTypes.oneOf(['forward', 'backward', 'reversible']),
     animationDuration: PropTypes.number,
     animationDelay: PropTypes.number,
@@ -38,8 +40,13 @@ export default class Indicator extends PureComponent {
   }
 
   startAnimation() {
-    let { animationDuration, animationDelay, animationDirection } = this.props;
     let { progress } = this.state;
+    let {
+      animationEasing,
+      animationDuration,
+      animationDelay,
+      animationDirection,
+    } = this.props;
 
     if (!this.mounted) {
       return;
@@ -53,13 +60,13 @@ export default class Indicator extends PureComponent {
         Animated.timing(progress, {
           duration: bwd? 0 : animationDuration,
           delay: (fwd || this.nodelay)? 0 : animationDelay,
-          easing: Easing.inOut(Easing.ease),
+          easing: animationEasing,
           toValue: 1,
         }),
         Animated.timing(progress, {
           duration: fwd? 0 : animationDuration,
           delay: bwd? 0 : animationDelay,
-          easing: Easing.inOut(Easing.ease),
+          easing: animationEasing,
           toValue: 0,
         }),
       ])
