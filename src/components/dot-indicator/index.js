@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 import Indicator from '../indicator';
 import styles from './styles';
@@ -8,6 +8,7 @@ export default class DotIndicator extends PureComponent {
   static defaultProps = {
     count: 4,
     color: 'rgba(0, 0, 0, .2)',
+    animationEasing: Easing.inOut(Easing.ease),
   };
 
   static propTypes = {
