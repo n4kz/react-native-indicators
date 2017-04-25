@@ -14,6 +14,7 @@ Activity indicator collection for React Native
 
 * Bar indicator
 * Circle indicator
+* Wave indicator
 
 ## Installation
 
@@ -35,6 +36,7 @@ class Example extends Component {
   }
 }
 ```
+
 ## Properties
 
  name               | description                   | type     | default
