@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, StatusBar, View, Platform } from 'react-native';
-import { DotIndicator } from 'react-native-indicators';
+import { DotIndicator, UIActivityIndicator } from 'react-native-indicators';
 
 Platform.select({
   ios: () => StatusBar.setBarStyle('light-content'),
@@ -27,6 +27,12 @@ export default function init() {
                 animationDelay={0}
                 animationDuration={700}
               />
+            </View>
+          </View>
+
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 1 }}>
+              <UIActivityIndicator color='#D32F2F' />
             </View>
           </View>
 
