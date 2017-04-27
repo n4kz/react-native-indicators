@@ -14,7 +14,6 @@ Activity indicator collection for React Native
 
 * Bar indicator
 * Circle indicator
-* Wave indicator
 
 ## Installation
 
@@ -26,7 +25,7 @@ npm install --save react-native-indicators
 
 ```javascript
 import React, { Component } from 'react';
-import { DotIndicator } from 'react-native-indicators';
+import { DotIndicator, WaveIndicator, UIActivityIndicator } from 'react-native-indicators';
 
 class Example extends Component {
   render() {
