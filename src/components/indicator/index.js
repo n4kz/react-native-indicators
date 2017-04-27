@@ -6,7 +6,6 @@ export default class Indicator extends PureComponent {
     animationEasing: Easing.linear,
     animationDirection: 'forward',
     animationDuration: 1200,
-    animationDelay: 200,
     fadeDuration: 200,
     count: 1,
   };
@@ -17,7 +16,6 @@ export default class Indicator extends PureComponent {
     animationEasing: PropTypes.func,
     animationDirection: PropTypes.oneOf(['forward', 'backward', 'reversible']),
     animationDuration: PropTypes.number,
-    animationDelay: PropTypes.number,
     fadeDuration: PropTypes.number,
 
     renderComponent: PropTypes.func,
@@ -36,7 +34,6 @@ export default class Indicator extends PureComponent {
     };
 
     this.mounted = false;
-    this.nodelay = true;
   }
 
   startAnimation() {
@@ -44,7 +41,6 @@ export default class Indicator extends PureComponent {
     let {
       animationEasing,
       animationDuration,
-      animationDelay,
       animationDirection,
     } = this.props;
 
@@ -58,21 +54,19 @@ export default class Indicator extends PureComponent {
     Animated
       .sequence([
         Animated.timing(progress, {
-          duration: bwd? 0 : animationDuration,
-          delay: (fwd || this.nodelay)? 0 : animationDelay,
+          duration: (fwd || bwd)? 0 : animationDuration,
           easing: animationEasing,
-          toValue: 1,
+          useNativeDriver: true,
+          toValue: fwd? 0 : 1,
         }),
         Animated.timing(progress, {
-          duration: fwd? 0 : animationDuration,
-          delay: bwd? 0 : animationDelay,
+          duration: animationDuration,
           easing: animationEasing,
-          toValue: 0,
+          useNativeDriver: true,
+          toValue: fwd? 1 : 0,
         }),
       ])
       .start(this.startAnimation);
-
-    this.nodelay = false;
   }
 
   componentDidMount() {
@@ -82,7 +76,11 @@ export default class Indicator extends PureComponent {
     this.mounted = true;
 
     Animated
-      .timing(opacity, { toValue: 1, duration: fadeDuration })
+      .timing(opacity, {
+        toValue: 1,
+        duration: fadeDuration,
+        useNativeDriver: true,
+      })
       .start(this.startAnimation);
   }
 
