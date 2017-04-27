@@ -43,7 +43,6 @@ class Example extends Component {
 :------------------ |:----------------------------- | --------:|:-------------
  fadeDuration       | Fade animation duration in ms |   Number | 200
  animationEasing    | Animation easing function     | Function | Easing.linear
- animationDelay     | Animation delay in ms         |   Number | 200
  animationDuration  | Animation duration in ms      |   Number | 1200
  animationDirection | Animation direction           |   String | forward
  count              | Component count               |   Number | 1
