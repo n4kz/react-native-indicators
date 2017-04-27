@@ -6,10 +6,8 @@ import styles from './styles';
 
 export default class UIActivityIndicator extends PureComponent {
   static defaultProps = {
-    animationDelay: 0,
-
     count: 12,
-    color: 'rgba(0, 0, 0, .54)',
+    color: 'rgb(0, 0, 0)',
   };
 
   static propTypes = {
