@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, StatusBar, View, Platform } from 'react-native';
-import { DotIndicator, UIActivityIndicator } from 'react-native-indicators';
+import { DotIndicator, WaveIndicator, UIActivityIndicator } from 'react-native-indicators';
 
 Platform.select({
   ios: () => StatusBar.setBarStyle('light-content'),
@@ -33,6 +33,10 @@ export default function init() {
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
               <UIActivityIndicator color='#D32F2F' />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <WaveIndicator color='#0097A7' />
             </View>
           </View>
 
