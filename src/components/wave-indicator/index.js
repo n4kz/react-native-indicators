@@ -38,12 +38,12 @@ export default class WaveIndicator extends PureComponent {
       backgroundColor,
       transform: [{
         scale: progress.interpolate({
-          inputRange: [0, 1 - 0.54 ** index, 1],
+          inputRange: [0, 1 - Math.pow(0.54, index), 1],
           outputRange: [0, 0, 1],
         }),
       }],
       opacity: progress.interpolate({
-        inputRange: [0, 1 - 0.54 ** index, 1],
+        inputRange: [0, 1 - Math.pow(0.54, index), 1],
         outputRange: [1, 1, 0],
       }),
     };
