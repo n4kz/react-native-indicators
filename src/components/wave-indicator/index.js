@@ -17,8 +17,9 @@ export default class WaveIndicator extends PureComponent {
   static propTypes = {
     ...Indicator.propTypes,
 
-    count: PropTypes.number,
     color: PropTypes.string,
+    count: PropTypes.number,
+    size: PropTypes.number,
   };
 
   constructor(props) {
