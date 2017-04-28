@@ -28,7 +28,7 @@ export default class WaveIndicator extends PureComponent {
     this.renderComponent = this.renderComponent.bind(this);
   }
 
-  renderComponent({ index, count, opacity, progress }) {
+  renderComponent({ index, count, progress }) {
     let { size, color: backgroundColor } = this.props;
 
     let waveStyle = {

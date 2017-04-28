@@ -6,7 +6,6 @@ export default class Indicator extends PureComponent {
     animationEasing: Easing.linear,
     animationDirection: 'forward',
     animationDuration: 1200,
-    fadeDuration: 200,
     count: 1,
   };
 
@@ -16,7 +15,6 @@ export default class Indicator extends PureComponent {
     animationEasing: PropTypes.func,
     animationDirection: PropTypes.oneOf(['forward', 'backward', 'reversible']),
     animationDuration: PropTypes.number,
-    fadeDuration: PropTypes.number,
 
     renderComponent: PropTypes.func,
     count: PropTypes.number,
@@ -30,7 +28,6 @@ export default class Indicator extends PureComponent {
 
     this.state = {
       progress: new Animated.Value(0),
-      opacity: new Animated.Value(0),
     };
 
     this.mounted = false;
@@ -70,18 +67,8 @@ export default class Indicator extends PureComponent {
   }
 
   componentDidMount() {
-    let { fadeDuration } = this.props;
-    let { opacity } = this.state;
-
     this.mounted = true;
-
-    Animated
-      .timing(opacity, {
-        toValue: 1,
-        duration: fadeDuration,
-        useNativeDriver: true,
-      })
-      .start(this.startAnimation);
+    this.startAnimation();
   }
 
   componentWillUnmount() {
@@ -89,11 +76,11 @@ export default class Indicator extends PureComponent {
   }
 
   renderComponent(undefined, index) {
-    let { progress, opacity } = this.state;
+    let { progress } = this.state;
     let { renderComponent, count } = this.props;
 
     if ('function' === typeof renderComponent) {
-      return renderComponent({ index, count, opacity, progress });
+      return renderComponent({ index, count, progress });
     } else {
       return null;
     }

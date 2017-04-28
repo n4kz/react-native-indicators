@@ -25,12 +25,11 @@ export default class UIActivityIndicator extends PureComponent {
     this.renderComponent = this.renderComponent.bind(this);
   }
 
-  renderComponent({ index, count, opacity, progress }) {
+  renderComponent({ index, count, progress }) {
     let { size, color: backgroundColor } = this.props;
     let angle = index * 360 / count;
 
     let layerStyle = {
-      opacity,
       transform: [{
         rotate: angle + 'deg',
       }],

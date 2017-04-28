@@ -25,11 +25,10 @@ export default class DotIndicator extends PureComponent {
     this.renderComponent = this.renderComponent.bind(this);
   }
 
-  renderComponent({ index, count, opacity, progress }) {
+  renderComponent({ index, count, progress }) {
     let { color: backgroundColor } = this.props;
 
     let style = {
-      opacity,
       backgroundColor,
       transform: [{
         scale: progress.interpolate({
