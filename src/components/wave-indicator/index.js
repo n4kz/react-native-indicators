@@ -9,8 +9,9 @@ export default class WaveIndicator extends PureComponent {
     animationEasing: Easing.out(Easing.ease),
     animationDuration: 1600,
 
-    count: 4,
     color: 'rgb(0, 0, 0)',
+    count: 4,
+    size: 40,
   };
 
   static propTypes = {
@@ -27,9 +28,12 @@ export default class WaveIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, opacity, progress }) {
-    let { color: backgroundColor } = this.props;
+    let { size, color: backgroundColor } = this.props;
 
     let waveStyle = {
+      height: size,
+      width: size,
+      borderRadius: size / 2,
       backgroundColor,
       transform: [{
         scale: progress.interpolate({
@@ -45,18 +49,18 @@ export default class WaveIndicator extends PureComponent {
 
     return (
       <Animated.View style={styles.layer} {...{ key: index }}>
-        <Animated.View style={[styles.wave, waveStyle]} />
+        <Animated.View style={waveStyle} />
       </Animated.View>
     );
   }
 
   render() {
-    let { style, ...props } = this.props;
+    let { style, size: width, size: height, ...props } = this.props;
 
     return (
       <View style={[styles.container, style]}>
         <Indicator
-          style={styles.indicator}
+          style={{ width, height }}
           renderComponent={this.renderComponent}
           {...props}
         />

@@ -14,15 +14,4 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-
-  indicator: {
-    width: 40,
-    height: 40,
-  },
-
-  wave: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-  },
 });
