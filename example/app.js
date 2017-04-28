@@ -24,7 +24,6 @@ export default function init() {
                 count={6}
                 color='#689F38'
                 animationDirection='reversible'
-                animationDelay={0}
                 animationDuration={700}
               />
             </View>
