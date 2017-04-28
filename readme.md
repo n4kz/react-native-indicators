@@ -40,7 +40,6 @@ class Example extends Component {
 
  name               | description                   | type     | default
 :------------------ |:----------------------------- | --------:|:-------------
- fadeDuration       | Fade animation duration in ms |   Number | 200
  animationEasing    | Animation easing function     | Function | Easing.linear
  animationDuration  | Animation duration in ms      |   Number | 1200
  animationDirection | Animation direction           |   String | forward
