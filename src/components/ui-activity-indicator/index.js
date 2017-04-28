@@ -6,15 +6,17 @@ import styles from './styles';
 
 export default class UIActivityIndicator extends PureComponent {
   static defaultProps = {
-    count: 12,
     color: 'rgb(0, 0, 0)',
+    count: 12,
+    size: 40,
   };
 
   static propTypes = {
     ...Indicator.propTypes,
 
-    count: PropTypes.number,
     color: PropTypes.string,
+    count: PropTypes.number,
+    size: PropTypes.number,
   };
 
   constructor(props) {
@@ -24,7 +26,7 @@ export default class UIActivityIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, opacity, progress }) {
-    let { color: backgroundColor } = this.props;
+    let { size, color: backgroundColor } = this.props;
     let angle = index * 360 / count;
 
     let layerStyle = {
@@ -51,6 +53,9 @@ export default class UIActivityIndicator extends PureComponent {
     outputRange.unshift(...outputRange.slice(-1));
 
     let barStyle = {
+      width: size / 10,
+      height: size / 4,
+      borderRadius: size / 20,
       backgroundColor,
       opacity: progress
         .interpolate({ inputRange, outputRange }),
@@ -58,18 +63,18 @@ export default class UIActivityIndicator extends PureComponent {
 
     return (
       <Animated.View style={[styles.layer, layerStyle]} {...{ key: index }}>
-        <Animated.View style={[styles.bar, barStyle]} />
+        <Animated.View style={barStyle} />
       </Animated.View>
     );
   }
 
   render() {
-    let { style, ...props } = this.props;
+    let { style, size: width, size: height, ...props } = this.props;
 
     return (
       <View style={[styles.container, style]}>
         <Indicator
-          style={styles.indicator}
+          style={{ width, height }}
           renderComponent={this.renderComponent}
           {...props}
         />
