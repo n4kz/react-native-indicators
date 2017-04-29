@@ -10,6 +10,7 @@ export default class WaveIndicator extends PureComponent {
     animationDuration: 1600,
 
     waveFactor: 0.54,
+    waveMode: 'fill',
 
     color: 'rgb(0, 0, 0)',
     count: 4,
@@ -20,6 +21,7 @@ export default class WaveIndicator extends PureComponent {
     ...Indicator.propTypes,
 
     waveFactor: PropTypes.number,
+    waveMode: PropTypes.oneOf(['fill', 'outline']),
 
     color: PropTypes.string,
     count: PropTypes.number,
@@ -33,13 +35,15 @@ export default class WaveIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, progress }) {
-    let { size, color: backgroundColor, waveFactor } = this.props;
+    let { size, color, waveFactor, waveMode } = this.props;
+    let fill = 'fill' === waveMode;
 
     let waveStyle = {
       height: size,
       width: size,
       borderRadius: size / 2,
-      backgroundColor,
+      borderWidth: fill? 0 : Math.floor(size / 20),
+      [fill? 'backgroundColor' : 'borderColor']: color,
       transform: [{
         scale: progress.interpolate({
           inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
