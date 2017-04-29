@@ -9,6 +9,8 @@ export default class WaveIndicator extends PureComponent {
     animationEasing: Easing.out(Easing.ease),
     animationDuration: 1600,
 
+    waveFactor: 0.54,
+
     color: 'rgb(0, 0, 0)',
     count: 4,
     size: 40,
@@ -16,6 +18,8 @@ export default class WaveIndicator extends PureComponent {
 
   static propTypes = {
     ...Indicator.propTypes,
+
+    waveFactor: PropTypes.number,
 
     color: PropTypes.string,
     count: PropTypes.number,
@@ -29,7 +33,7 @@ export default class WaveIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, progress }) {
-    let { size, color: backgroundColor } = this.props;
+    let { size, color: backgroundColor, waveFactor } = this.props;
 
     let waveStyle = {
       height: size,
@@ -38,12 +42,12 @@ export default class WaveIndicator extends PureComponent {
       backgroundColor,
       transform: [{
         scale: progress.interpolate({
-          inputRange: [0, 1 - Math.pow(0.54, index), 1],
+          inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
           outputRange: [0, 0, 1],
         }),
       }],
       opacity: progress.interpolate({
-        inputRange: [0, 1 - Math.pow(0.54, index), 1],
+        inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
         outputRange: [1, 1, 0],
       }),
     };
