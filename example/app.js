@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, StatusBar, View, Platform } from 'react-native';
-import { DotIndicator, WaveIndicator, UIActivityIndicator } from 'react-native-indicators';
+import { DotIndicator, BarIndicator, WaveIndicator, UIActivityIndicator } from 'react-native-indicators';
 
 Platform.select({
   ios: () => StatusBar.setBarStyle('light-content'),
@@ -20,12 +20,15 @@ export default function init() {
 
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
-              <DotIndicator
-                count={6}
-                color='#689F38'
-                animationDirection='reversible'
-                animationDuration={700}
-              />
+              <WaveIndicator color='#0097A7' />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <WaveIndicator color='#0097A7' waveMode='outline' />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <WaveIndicator color='#0097A7' count={2} waveFactor={0.40} />
             </View>
           </View>
 
@@ -35,7 +38,13 @@ export default function init() {
             </View>
 
             <View style={{ flex: 1 }}>
-              <WaveIndicator color='#0097A7' />
+              <UIActivityIndicator color='#D32F2F' animationDirection='backward' />
+            </View>
+          </View>
+
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 1 }}>
+              <BarIndicator color='#FF6F00' count={5} />
             </View>
           </View>
 
