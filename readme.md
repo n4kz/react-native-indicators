@@ -10,11 +10,6 @@
 
 Activity indicator collection for React Native
 
-## Roadmap
-
-* Bar indicator
-* Circle indicator
-
 ## Installation
 
 ```bash
