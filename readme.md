@@ -2,6 +2,7 @@
 [npm-url]: https://npmjs.com/package/react-native-indicators
 [license-badge]: https://img.shields.io/npm/l/react-native-indicators.svg?colorB=448aff
 [license-url]: https://raw.githubusercontent.com/n4kz/react-native-indicators/master/license.txt
+[indicator]: https://facebook.github.io/react-native/docs/activityindicator.html
 
 # react-native-indicators
 
@@ -16,6 +17,7 @@ Activity indicator collection for React Native
 
 * Easy to use
 * Consistent look and feel on iOS and Android
+* Can be used as drop-in replacement for [ActivityIndicator][indicator]
 * Configurable appearance and animation
 * Native driver based animation
 * Pure javascript implementation
@@ -47,16 +49,58 @@ class Example extends Component {
 }
 ```
 
-## Properties
+## Common properties
 
  name               | description                   | type     | default
 :------------------ |:----------------------------- | --------:|:-------------
  animationEasing    | Animation easing function     | Function | Easing.linear
  animationDuration  | Animation duration in ms      |   Number | 1200
  animationDirection | Animation direction           |   String | forward
- count              | Component count               |   Number | 1
 
 Possible values for `animationDirection` are `forward`, `backward` and `reversible`
+
+## BallIndicator properties
+
+ name  | description     | type   | default
+:----- |:--------------- | ------:|:------------
+ color | Component color | String | rgb(0, 0, 0)
+ count | Component count | Number | 8
+ size  | Component count | Number | 40
+
+## BarIndicator properties
+
+ name  | description     | type   | default
+:----- |:--------------- | ------:|:------------
+ color | Component color | String | rgb(0, 0, 0)
+ count | Component count | Number | 3
+
+## DotIndicator properties
+
+ name  | description         | type   | default
+:----- |:------------------- | ------:|:------------
+ color | Component color     | String | rgb(0, 0, 0)
+ count | Component count     | Number | 4
+ size  | Base component size | Number | 16
+
+## UIActivityIndicator properties
+
+ name  | description         | type   | default
+:----- |:------------------- | ------:|:------------
+ color | Component color     | String | rgb(0, 0, 0)
+ count | Component count     | Number | 12
+ size  | Base component size | Number | 40
+
+## WaveIndicator properties
+
+ name       | description         | type   | default
+:---------- |:------------------- | ------:|:------------
+ color      | Component color     | String | rgb(0, 0, 0)
+ count      | Component count     | Number | 4
+ size       | Base component size | Number | 40
+ waveFactor | Wave base number    | Number | 0.54
+ waveMode   | Wave appearance     | String | fill
+
+Possible values for `waveMode` are `fill` and `outline`
 
 ## Example
 
