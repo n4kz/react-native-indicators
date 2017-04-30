@@ -59,7 +59,7 @@ export default class BallIndicator extends PureComponent {
       transform: [{
         scale: progress
           .interpolate({ inputRange, outputRange }),
-      }]
+      }],
     };
 
     return (
