@@ -8,15 +8,17 @@ export default class DotIndicator extends PureComponent {
   static defaultProps = {
     animationEasing: Easing.inOut(Easing.ease),
 
-    count: 4,
     color: 'rgb(0, 0, 0)',
+    count: 4,
+    size: 16,
   };
 
   static propTypes = {
     ...Indicator.propTypes,
 
-    count: PropTypes.number,
     color: PropTypes.string,
+    count: PropTypes.number,
+    size: PropTypes.number,
   };
 
   constructor(props) {
@@ -26,9 +28,13 @@ export default class DotIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, progress }) {
-    let { color: backgroundColor } = this.props;
+    let { size, color: backgroundColor } = this.props;
 
     let style = {
+      width: size,
+      height: size,
+      margin: size / 2,
+      borderRadius: size / 2,
       backgroundColor,
       transform: [{
         scale: progress.interpolate({
@@ -51,7 +57,7 @@ export default class DotIndicator extends PureComponent {
     };
 
     return (
-      <Animated.View style={[styles.indicator, style]} {...{ key: index }} />
+      <Animated.View style={style} {...{ key: index }} />
     );
   }
 

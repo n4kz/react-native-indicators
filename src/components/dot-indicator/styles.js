@@ -7,11 +7,4 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-
-  indicator: {
-    margin: 8,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-  },
 });
