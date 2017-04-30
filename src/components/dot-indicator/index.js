@@ -17,7 +17,6 @@ export default class DotIndicator extends PureComponent {
     ...Indicator.propTypes,
 
     color: PropTypes.string,
-    count: PropTypes.number,
     size: PropTypes.number,
   };
 

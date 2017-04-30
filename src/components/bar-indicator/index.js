@@ -13,7 +13,6 @@ export default class BarIndicator extends PureComponent {
   static propTypes = {
     ...Indicator.propTypes,
 
-    count: PropTypes.number,
     color: PropTypes.string,
   };
 

@@ -24,7 +24,6 @@ export default class WaveIndicator extends PureComponent {
     waveMode: PropTypes.oneOf(['fill', 'outline']),
 
     color: PropTypes.string,
-    count: PropTypes.number,
     size: PropTypes.number,
   };
 

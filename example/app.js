@@ -5,7 +5,7 @@ import {
   BarIndicator,
   BallIndicator,
   WaveIndicator,
-  UIActivityIndicator
+  UIActivityIndicator,
 } from 'react-native-indicators';
 
 Platform.select({
@@ -17,7 +17,7 @@ export default function init() {
   class Example extends Component {
     render() {
       return (
-        <View style={{ flex: 1, backgroundColor: '#01579B', padding: 20, }}>
+        <View style={{ flex: 1, backgroundColor: '#01579B', padding: 20 }}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
               <BallIndicator color='white' animationDuration={800} />
