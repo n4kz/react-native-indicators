@@ -20,7 +20,13 @@ npm install --save react-native-indicators
 
 ```javascript
 import React, { Component } from 'react';
-import { DotIndicator, WaveIndicator, UIActivityIndicator } from 'react-native-indicators';
+import {
+  DotIndicator,
+  BarIndicator,
+  BallIndicator,
+  WaveIndicator,
+  UIActivityIndicator
+} from 'react-native-indicators';
 
 class Example extends Component {
   render() {
