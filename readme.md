@@ -10,6 +10,16 @@
 
 Activity indicator collection for React Native
 
+![example](https://cloud.githubusercontent.com/assets/2055622/25563554/ee473a00-2da6-11e7-872e-a53eab2f9f78.gif)
+
+## Features
+
+* Easy to use
+* Consistent look and feel on iOS and Android
+* Configurable appearance and animation
+* Native driver based animation
+* Pure javascript implementation
+
 ## Installation
 
 ```bash
