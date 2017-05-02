@@ -4,6 +4,7 @@ import {
   DotIndicator,
   BarIndicator,
   BallIndicator,
+  PulseIndicator,
   WaveIndicator,
   UIActivityIndicator,
 } from 'react-native-indicators';
@@ -21,6 +22,10 @@ export default function init() {
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
               <BallIndicator color='white' animationDuration={800} />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <PulseIndicator color='white' />
             </View>
           </View>
 
