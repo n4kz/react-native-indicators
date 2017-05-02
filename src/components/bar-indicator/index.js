@@ -7,13 +7,16 @@ import styles from './styles';
 export default class BarIndicator extends PureComponent {
   static defaultProps = {
     count: 3,
+
     color: 'rgb(0, 0, 0)',
+    size: 40,
   };
 
   static propTypes = {
     ...Indicator.propTypes,
 
     color: PropTypes.string,
+    size: PropTypes.number,
   };
 
   constructor(props) {
@@ -37,7 +40,7 @@ export default class BarIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, progress }) {
-    let { color: backgroundColor, animationDuration } = this.props;
+    let { color: backgroundColor, size, animationDuration } = this.props;
 
     let frames = 60 * animationDuration / 1000;
     let samples = 0;
@@ -49,30 +52,49 @@ export default class BarIndicator extends PureComponent {
     let inputRange = Array
       .from(new Array(samples + 1), (undefined, index) => index / samples);
 
-    let styleA = {
+    let
+      width  = Math.floor(size / 5),
+      height = Math.floor(size / 2),
+      radius = Math.ceil(width / 2);
+
+    let containerStyle = {
+      height: size,
+      width: width,
+      marginHorizontal: radius,
+    };
+
+    let topStyle = {
+      width,
+      height,
       backgroundColor,
+      borderTopLeftRadius: radius,
+      borderTopRightRadius: radius,
       transform: [{
         translateY: progress.interpolate({
           inputRange,
-          outputRange: this.outputRange(+8, index, count, samples),
+          outputRange: this.outputRange(+(height - radius) / 2, index, count, samples),
         }),
       }],
     };
 
-    let styleB = {
+    let bottomStyle = {
+      width,
+      height,
       backgroundColor,
+      borderBottomLeftRadius: radius,
+      borderBottomRightRadius: radius,
       transform: [{
         translateY: progress.interpolate({
           inputRange,
-          outputRange: this.outputRange(-8, index, count, samples),
+          outputRange: this.outputRange(-(height - radius) / 2, index, count, samples),
         }),
       }],
     };
 
     return (
-      <View style={styles.indicatorContainer} {...{ key: index }}>
-        <Animated.View style={[styles.indicatorA, styleA]} />
-        <Animated.View style={[styles.indicatorB, styleB]} />
+      <View style={containerStyle} {...{ key: index }}>
+        <Animated.View style={topStyle} />
+        <Animated.View style={bottomStyle} />
       </View>
     );
   }
