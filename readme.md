@@ -61,18 +61,19 @@ Possible values for `animationDirection` are `forward`, `backward` and `reversib
 
 ## BallIndicator properties
 
- name  | description     | type   | default
-:----- |:--------------- | ------:|:------------
- color | Component color | String | rgb(0, 0, 0)
- count | Component count | Number | 8
- size  | Component count | Number | 40
+ name  | description         | type   | default
+:----- |:------------------- | ------:|:------------
+ color | Component color     | String | rgb(0, 0, 0)
+ count | Component count     | Number | 8
+ size  | Base component size | Number | 40
 
 ## BarIndicator properties
 
- name  | description     | type   | default
-:----- |:--------------- | ------:|:------------
- color | Component color | String | rgb(0, 0, 0)
- count | Component count | Number | 3
+ name  | description         | type   | default
+:----- |:------------------- | ------:|:------------
+ color | Component color     | String | rgb(0, 0, 0)
+ count | Component count     | Number | 3
+ size  | Base component size | Number | 40
 
 ## DotIndicator properties
 
