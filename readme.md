@@ -84,7 +84,7 @@ Possible values for `animationDirection` are `forward`, `backward` and `reversib
  count | Component count     | Number | 4
  size  | Base component size | Number | 16
 
-## PulseIndicator
+## PulseIndicator properties
 
  name  | description         | type   | default
 :----- |:------------------- | ------:|:------------
