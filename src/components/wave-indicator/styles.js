@@ -5,13 +5,12 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
   },
 
   layer: {
     ...StyleSheet.absoluteFillObject,
 
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
   },
 });
