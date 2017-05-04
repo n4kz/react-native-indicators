@@ -37,6 +37,7 @@ import {
   BarIndicator,
   BallIndicator,
   PulseIndicator,
+  SkypeIndicator,
   WaveIndicator,
   UIActivityIndicator
 } from 'react-native-indicators';
@@ -90,6 +91,16 @@ Possible values for `animationDirection` are `forward`, `backward` and `reversib
 :----- |:------------------- | ------:|:------------
  color | Component color     | String | rgb(0, 0, 0)
  size  | Base component size | Number | 40
+
+## SkypeIndicator properties
+
+ name     | description             | type   | default
+:-------- |:----------------------- | ------:|:------------
+ color    | Component color         | String | rgb(0, 0, 0)
+ count    | Component count         | Number | 5
+ size     | Base component size     | Number | 40
+ minScale | Minimum component scale | Number | 0.2
+ maxScale | Maximum component scale | Number | 1.0
 
 ## UIActivityIndicator properties
 
