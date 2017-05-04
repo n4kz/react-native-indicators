@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { AppRegistry, StatusBar, View, Platform } from 'react-native';
-import {
+import { AppRegistry, StatusBar, View, Platform } from 'react-native'; import {
   DotIndicator,
   BarIndicator,
   BallIndicator,
   PulseIndicator,
+  SkypeIndicator,
   WaveIndicator,
   UIActivityIndicator,
 } from 'react-native-indicators';
@@ -26,6 +26,10 @@ export default function init() {
 
             <View style={{ flex: 1 }}>
               <PulseIndicator color='white' />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <SkypeIndicator color='white' />
             </View>
           </View>
 
