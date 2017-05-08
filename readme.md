@@ -11,7 +11,7 @@
 
 Activity indicator collection for React Native
 
-![example](https://cloud.githubusercontent.com/assets/2055622/25563554/ee473a00-2da6-11e7-872e-a53eab2f9f78.gif)
+![example](https://cloud.githubusercontent.com/assets/2055622/25817117/080a8d3c-342f-11e7-93bf-cb6c3f0fb50e.gif)
 
 ## Features
 
