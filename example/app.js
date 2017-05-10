@@ -7,6 +7,7 @@ import { AppRegistry, StatusBar, View, Platform } from 'react-native'; import {
   SkypeIndicator,
   WaveIndicator,
   UIActivityIndicator,
+  PacmanIndicator,
 } from 'react-native-indicators';
 
 Platform.select({
@@ -54,6 +55,10 @@ export default function init() {
 
             <View style={{ flex: 1 }}>
               <UIActivityIndicator color='white' animationDirection='backward' />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <PacmanIndicator color='white' />
             </View>
           </View>
 
