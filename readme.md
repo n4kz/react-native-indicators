@@ -36,6 +36,7 @@ import {
   DotIndicator,
   BarIndicator,
   BallIndicator,
+  PacmanIndicator,
   PulseIndicator,
   SkypeIndicator,
   WaveIndicator,
@@ -84,6 +85,13 @@ Possible values for `animationDirection` are `forward`, `backward` and `reversib
  color | Component color     | String | rgb(0, 0, 0)
  count | Component count     | Number | 4
  size  | Base component size | Number | 16
+
+## PacmanIndicator properties
+
+ name  | description         | type   | default
+:----- |:------------------- | ------:|:------------
+ color | Component color     | String | rgb(0, 0, 0)
+ size  | Base component size | Number | 48
 
 ## PulseIndicator properties
 
