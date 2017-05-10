@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { View, Animated, Easing } from 'react-native';
+import { View, Animated } from 'react-native';
 
 import Indicator from '../indicator';
 import styles from './styles';
