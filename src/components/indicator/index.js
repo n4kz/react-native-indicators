@@ -11,8 +11,6 @@ export default class Indicator extends PureComponent {
   };
 
   static propTypes = {
-    ...Animated.View.propTypes,
-
     animationEasing: PropTypes.func,
     animationDirection: PropTypes.oneOf(['forward', 'backward', 'reversible']),
     animationDuration: PropTypes.number,
