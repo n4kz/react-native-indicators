@@ -7,11 +7,11 @@
     "android": "node node_modules/react-native/local-cli/cli.js run-android"
   },
   "dependencies": {
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.44.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.45.1",
     "react-native-indicators": "file:../"
   },
   "devDependencies": {
-    "babel-preset-react-native": "1.9.1"
+    "babel-preset-react-native": "1.9.2"
   }
 }
