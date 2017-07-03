@@ -1,6 +1,6 @@
 import Indicator from './src/components/indicator';
-import BarIndicator from './src/components/bar-indicator';
 import BallIndicator from './src/components/ball-indicator';
+import BarIndicator from './src/components/bar-indicator';
 import DotIndicator from './src/components/dot-indicator';
 import MaterialIndicator from './src/components/material-indicator';
 import PacmanIndicator from './src/components/pacman-indicator';
