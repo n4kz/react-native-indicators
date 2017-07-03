@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { AppRegistry, StatusBar, View, Platform } from 'react-native'; import {
-  DotIndicator,
-  BarIndicator,
   BallIndicator,
+  BarIndicator,
+  DotIndicator,
+  MaterialIndicator,
+  PacmanIndicator,
   PulseIndicator,
   SkypeIndicator,
-  WaveIndicator,
   UIActivityIndicator,
-  PacmanIndicator,
+  WaveIndicator,
 } from 'react-native-indicators';
 
 Platform.select({
@@ -54,7 +55,7 @@ export default function init() {
             </View>
 
             <View style={{ flex: 1 }}>
-              <UIActivityIndicator color='white' animationDirection='backward' />
+              <MaterialIndicator color='white' />
             </View>
 
             <View style={{ flex: 1 }}>
