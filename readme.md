@@ -34,14 +34,15 @@ npm install --save react-native-indicators
 ```javascript
 import React, { Component } from 'react';
 import {
-  DotIndicator,
-  BarIndicator,
   BallIndicator,
+  BarIndicator,
+  DotIndicator,
+  MaterialIndicator,
   PacmanIndicator,
   PulseIndicator,
   SkypeIndicator,
-  WaveIndicator,
   UIActivityIndicator
+  WaveIndicator,
 } from 'react-native-indicators';
 
 class Example extends Component {
@@ -86,6 +87,13 @@ Possible values for `animationDirection` are `forward`, `backward` and `reversib
  color | Component color     | String | rgb(0, 0, 0)
  count | Component count     | Number | 4
  size  | Base component size | Number | 16
+
+## MaterialIndicator properties
+
+ name       | description         | type   | default
+:---------- |:------------------- | ------:|:------------
+ color      | Component color     | String | rgb(0, 0, 0)
+ size       | Base component size | Number | 40
 
 ## PacmanIndicator properties
 
