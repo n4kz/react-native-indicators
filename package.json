@@ -26,7 +26,7 @@
   },
 
   "scripts": {
-    "lint": "node_modules/.bin/eslint src example/app.js"
+    "lint": "eslint src example/app.js"
   },
 
   "dependencies": {
