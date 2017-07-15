@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Animated, Easing } from 'react-native';
+import RN from 'react-native/package';
+
+const [major, minor] = RN.version.split('.');
 
 export default class Indicator extends PureComponent {
   static defaultProps = {
     animationEasing: Easing.linear,
-    animationDirection: 'forward',
     animationDuration: 1200,
     count: 1,
   };
 
   static propTypes = {
     animationEasing: PropTypes.func,
-    animationDirection: PropTypes.oneOf(['forward', 'backward', 'reversible']),
     animationDuration: PropTypes.number,
 
     renderComponent: PropTypes.func,
@@ -37,32 +38,28 @@ export default class Indicator extends PureComponent {
     let {
       animationEasing,
       animationDuration,
-      animationDirection,
     } = this.props;
 
     if (!this.mounted) {
       return;
     }
 
-    let fwd = animationDirection === 'forward';
-    let bwd = animationDirection === 'backward';
+    let animation =
+      Animated.timing(progress, {
+        duration: animationDuration,
+        easing: animationEasing,
+        useNativeDriver: true,
+        toValue: 1,
+      });
 
-    Animated
-      .sequence([
-        Animated.timing(progress, {
-          duration: (fwd || bwd)? 0 : animationDuration,
-          easing: animationEasing,
-          useNativeDriver: true,
-          toValue: fwd? 0 : 1,
-        }),
-        Animated.timing(progress, {
-          duration: animationDuration,
-          easing: animationEasing,
-          useNativeDriver: true,
-          toValue: fwd? 1 : 0,
-        }),
-      ])
-      .start(this.startAnimation);
+    if (!major && minor >= 45) {
+      Animated
+        .loop(animation)
+        .start();
+    } else {
+      progress.setValue(0);
+      animation.start(this.startAnimation);
+    }
   }
 
   componentDidMount() {
