@@ -102,7 +102,7 @@ export default class PacmanIndicator extends PureComponent {
 
     return (
       <Animated.View style={pacmanStyle} key={index}>
-        <View style={containerStyle}>
+        <View style={containerStyle} collapsable={false}>
           <Animated.View style={style} />
         </View>
       </Animated.View>
