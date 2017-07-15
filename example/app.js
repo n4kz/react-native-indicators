@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AppRegistry, StatusBar, View, Platform } from 'react-native'; import {
+import { AppRegistry, StatusBar, View, Platform } from 'react-native';
+import {
   BallIndicator,
   BarIndicator,
   DotIndicator,
@@ -20,8 +21,8 @@ export default function init() {
   class Example extends Component {
     render() {
       return (
-        <View style={{ flex: 1, backgroundColor: '#01579B', padding: 20 }}>
-          <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={styles.container}>
+          <View style={styles.row}>
             <View style={{ flex: 1 }}>
               <BallIndicator color='white' animationDuration={800} />
             </View>
@@ -35,7 +36,7 @@ export default function init() {
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={styles.row}>
             <View style={{ flex: 1 }}>
               <WaveIndicator color='white' />
             </View>
@@ -49,7 +50,7 @@ export default function init() {
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={styles.row}>
             <View style={{ flex: 1 }}>
               <UIActivityIndicator color='white' />
             </View>
@@ -63,13 +64,13 @@ export default function init() {
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={styles.row}>
             <View style={{ flex: 1 }}>
               <BarIndicator color='white' count={5} />
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={styles.row}>
             <View style={{ flex: 1 }}>
               <DotIndicator
                 count={3}
@@ -80,10 +81,10 @@ export default function init() {
 
             <View style={{ flex: 1 }}>
               <DotIndicator
+                style={styles.reverse}
                 count={3}
                 color='white'
                 animationDuration={800}
-                animationDirection='backward'
               />
             </View>
           </View>
@@ -94,3 +95,22 @@ export default function init() {
 
   AppRegistry.registerComponent('example', () => Example);
 }
+
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#01579B',
+    padding: 20,
+  },
+
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+
+  reverse: {
+    transform: [{
+      rotate: '180deg',
+    }],
+  },
+};
