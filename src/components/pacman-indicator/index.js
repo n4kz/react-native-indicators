@@ -52,6 +52,13 @@ export default class PacmanIndicator extends PureComponent {
       }],
     };
 
+    if (count === index + 1) {
+      style.opacity = progress.interpolate({
+        inputRange: [0, 0.67, 1],
+        outputRange: [0, 1, 1],
+      });
+    }
+
     return (
       <Animated.View style={style} key={index} />
     );
