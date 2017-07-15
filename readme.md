@@ -60,9 +60,6 @@ class Example extends Component {
 :------------------ |:----------------------------- | --------:|:-------------
  animationEasing    | Animation easing function     | Function | Easing.linear
  animationDuration  | Animation duration in ms      |   Number | 1200
- animationDirection | Animation direction           |   String | forward
-
-Possible values for `animationDirection` are `forward`, `backward` and `reversible`
 
 ## BallIndicator properties
 
