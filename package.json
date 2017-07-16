@@ -5,7 +5,18 @@
   "author": "Alexander Nazarov <n4kz@n4kz.com>",
 
   "description": "Activity indicator collection",
-  "keywords": ["react", "react-component", "react-native", "ios", "android", "activity", "indicator", "spinner"],
+  "keywords": [
+    "react",
+    "react-component",
+    "react-native",
+    "ios",
+    "android",
+    "activity",
+    "indicator",
+    "spinner",
+    "pacman",
+    "material"
+  ],
 
   "main": "index.js",
 
