@@ -2,7 +2,7 @@
 [npm-url]: https://npmjs.com/package/react-native-indicators
 [license-badge]: https://img.shields.io/npm/l/react-native-indicators.svg?colorB=448aff
 [license-url]: https://raw.githubusercontent.com/n4kz/react-native-indicators/master/license.txt
-[example-url]: https://cloud.githubusercontent.com/assets/2055622/25817117/080a8d3c-342f-11e7-93bf-cb6c3f0fb50e.gif
+[example-url]: https://user-images.githubusercontent.com/2055622/28246049-e82c70e8-6a1b-11e7-93cc-8aa6d0d19867.gif
 [indicator]: https://facebook.github.io/react-native/docs/activityindicator.html
 
 # react-native-indicators
