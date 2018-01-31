@@ -60,6 +60,7 @@ class Example extends Component {
 :------------------ |:----------------------------- | --------:|:-------------
  animationEasing    | Animation easing function     | Function | Easing.linear
  animationDuration  | Animation duration in ms      |   Number | 1200
+ animating          | Animation toggle              |  Boolean | true
 
 ## BallIndicator properties
 
@@ -149,4 +150,4 @@ npm run ios # or npm run android
 
 BSD License
 
-Copyright 2017 Alexander Nazarov. All rights reserved.
+Copyright 2017-2018 Alexander Nazarov. All rights reserved.
