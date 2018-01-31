@@ -25,6 +25,7 @@ export default class Indicator extends PureComponent {
 
     this.renderComponent = this.renderComponent.bind(this);
     this.startAnimation = this.startAnimation.bind(this);
+    this.stopAnimation = this.stopAnimation.bind(this);
 
     this.state = {
       progress: new Animated.Value(0),
@@ -33,14 +34,14 @@ export default class Indicator extends PureComponent {
     this.mounted = false;
   }
 
-  startAnimation() {
+  startAnimation({ finished } = {}) {
     let { progress } = this.state;
     let {
       animationEasing,
       animationDuration,
     } = this.props;
 
-    if (!this.mounted) {
+    if (!this.mounted || false === finished) {
       return;
     }
 
@@ -60,6 +61,20 @@ export default class Indicator extends PureComponent {
       progress.setValue(0);
       animation.start(this.startAnimation);
     }
+
+    this.setState({ animation });
+  }
+
+  stopAnimation() {
+    let { animation } = this.state;
+
+    if (null == animation) {
+      return;
+    }
+
+    animation.stop();
+
+    this.setState({ animation: null });
   }
 
   componentDidMount() {
