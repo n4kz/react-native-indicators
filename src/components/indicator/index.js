@@ -4,6 +4,7 @@ import { Animated, Easing } from 'react-native';
 import RN from 'react-native/package';
 
 const [major, minor] = RN.version.split('.');
+const hasLoopSupport = !major && minor >= 45;
 
 export default class Indicator extends PureComponent {
   static defaultProps = {
@@ -58,7 +59,7 @@ export default class Indicator extends PureComponent {
         toValue: 1,
       });
 
-    if (!major && minor >= 45) {
+    if (hasLoopSupport) {
       Animated
         .loop(animation)
         .start();
