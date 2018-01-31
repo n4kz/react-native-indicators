@@ -9,12 +9,17 @@ export default class Indicator extends PureComponent {
   static defaultProps = {
     animationEasing: Easing.linear,
     animationDuration: 1200,
+
+    animating: true,
+
     count: 1,
   };
 
   static propTypes = {
     animationEasing: PropTypes.func,
     animationDuration: PropTypes.number,
+
+    animating: PropTypes.bool,
 
     renderComponent: PropTypes.func,
     count: PropTypes.number,
@@ -78,12 +83,29 @@ export default class Indicator extends PureComponent {
   }
 
   componentDidMount() {
+    let { animating } = this.props;
+
     this.mounted = true;
-    this.startAnimation();
+
+    if (animating) {
+      this.startAnimation();
+    }
   }
 
   componentWillUnmount() {
     this.mounted = false;
+  }
+
+  componentWillReceiveProps(props) {
+    let { animating } = this.props;
+
+    if (animating ^ props.animating) {
+      if (animating) {
+        this.stopAnimation();
+      } else {
+        this.startAnimation();
+      }
+    }
   }
 
   renderComponent(undefined, index) {
