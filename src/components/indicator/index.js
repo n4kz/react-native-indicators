@@ -56,6 +56,7 @@ export default class Indicator extends PureComponent {
         duration: animationDuration,
         easing: animationEasing,
         useNativeDriver: true,
+        isInteraction: false,
         toValue: 1,
       });
 
