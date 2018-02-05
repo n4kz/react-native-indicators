@@ -51,7 +51,8 @@ export default class BallIndicator extends PureComponent {
 
     outputRange.unshift(...outputRange.slice(-1));
 
-    let barStyle = {
+    let ballStyle = {
+      margin: size / 20,
       backgroundColor,
       width: size / 5,
       height: size / 5,
@@ -64,7 +65,7 @@ export default class BallIndicator extends PureComponent {
 
     return (
       <Animated.View style={[styles.layer, layerStyle]} {...{ key: index }}>
-        <Animated.View style={barStyle} />
+        <Animated.View style={ballStyle} />
       </Animated.View>
     );
   }

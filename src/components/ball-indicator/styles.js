@@ -12,6 +12,6 @@ export default StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
 
     justifyContent: 'flex-start',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
 });
