@@ -12,6 +12,7 @@ export default class Indicator extends PureComponent {
     animationDuration: 1200,
 
     animating: true,
+    interaction: true,
 
     count: 1,
   };
@@ -21,6 +22,7 @@ export default class Indicator extends PureComponent {
     animationDuration: PropTypes.number,
 
     animating: PropTypes.bool,
+    interaction: PropTypes.bool,
 
     renderComponent: PropTypes.func,
     count: PropTypes.number,
@@ -43,6 +45,7 @@ export default class Indicator extends PureComponent {
   startAnimation({ finished } = {}) {
     let { progress } = this.state;
     let {
+      interaction,
       animationEasing,
       animationDuration,
     } = this.props;
@@ -56,7 +59,7 @@ export default class Indicator extends PureComponent {
         duration: animationDuration,
         easing: animationEasing,
         useNativeDriver: true,
-        isInteraction: false,
+        isInteraction: interaction,
         toValue: 1,
       });
 
