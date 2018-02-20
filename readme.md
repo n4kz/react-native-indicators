@@ -61,6 +61,7 @@ class Example extends Component {
  animationEasing    | Animation easing function     | Function | Easing.linear
  animationDuration  | Animation duration in ms      |   Number | 1200
  animating          | Animation toggle              |  Boolean | true
+ interaction        | Animation is interaction      |  Boolean | true
 
 ## BallIndicator properties
 
