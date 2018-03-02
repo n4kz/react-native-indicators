@@ -20,6 +20,7 @@ Activity indicator collection for React Native
 * Consistent look and feel on iOS and Android
 * Can be used as drop-in replacement for [ActivityIndicator][indicator]
 * Configurable appearance and animation
+* Configurable indicator size
 * Native driver based animation
 * Pure javascript implementation
 
