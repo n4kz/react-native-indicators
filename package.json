@@ -3,7 +3,6 @@
   "version": "0.12.0",
   "license": "BSD-3-Clause",
   "author": "Alexander Nazarov <n4kz@n4kz.com>",
-
   "description": "Activity indicator collection",
   "keywords": [
     "react",
@@ -17,29 +16,23 @@
     "pacman",
     "material"
   ],
-
   "main": "index.js",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/n4kz/react-native-indicators.git"
   },
-
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
-
   "devDependencies": {
     "babel-eslint": "^8.0.0",
     "eslint": "^4.0.0",
     "eslint-plugin-react": "^7.1.0"
   },
-
   "scripts": {
     "lint": "eslint src example/app.js"
   },
-
   "dependencies": {
     "prop-types": "^15.5.10"
   }

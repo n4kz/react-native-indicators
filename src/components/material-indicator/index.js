@@ -11,6 +11,7 @@ export default class MaterialIndicator extends PureComponent {
 
     color: 'rgb(0, 0, 0)',
     size: 40,
+    lineBorderWidth: 4,
   };
 
   static propTypes = {
@@ -18,6 +19,7 @@ export default class MaterialIndicator extends PureComponent {
 
     color: PropTypes.string,
     size: PropTypes.number,
+    lineBorderWidth: PropTypes.number,
   };
 
   constructor(props) {
@@ -27,7 +29,7 @@ export default class MaterialIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, progress }) {
-    let { size, color, animationDuration } = this.props;
+    let { size, color, animationDuration, lineBorderWidth } = this.props;
 
     let frames = 60 * animationDuration / 1000;
     let easing = Easing.bezier(0.4, 0.0, 0.7, 1.0);
@@ -88,7 +90,7 @@ export default class MaterialIndicator extends PureComponent {
       width: size,
       height: size,
       borderColor: color,
-      borderWidth: size / 10,
+      borderWidth: lineBorderWidth,
       borderRadius: size / 2,
     };
 
