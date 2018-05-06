@@ -7,8 +7,8 @@
     "android": "node node_modules/react-native/local-cli/cli.js run-android"
   },
   "dependencies": {
-    "react": "16.0.0",
-    "react-native": "0.51.0",
+    "react": "16.3.2",
+    "react-native": "0.55.3",
     "react-native-indicators": "file:../"
   },
   "devDependencies": {
