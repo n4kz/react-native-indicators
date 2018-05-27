@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { View, Animated } from 'react-native';
+import { View, Animated, I18nManager } from 'react-native';
 
 import Indicator from '../indicator';
 import styles from './styles';
@@ -40,7 +40,7 @@ export default class PacmanIndicator extends PureComponent {
       transform: [{
         translateX: progress.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, -size / 4],
+          outputRange: [0, size / (I18nManager.isRTL? 4 : -4)],
         }),
       }, {
         scale: count === index + 1?
@@ -82,7 +82,7 @@ export default class PacmanIndicator extends PureComponent {
       transform: [{
         rotate: progress.interpolate({
           inputRange: [0, 0.67, 1],
-          outputRange: index?
+          outputRange: (index ^ I18nManager.isRTL)?
             ['0deg',  '45deg', '0deg']:
             ['0deg', '-45deg', '0deg'],
         }),
