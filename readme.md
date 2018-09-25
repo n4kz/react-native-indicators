@@ -42,8 +42,8 @@ import {
   PacmanIndicator,
   PulseIndicator,
   SkypeIndicator,
-  UIActivityIndicator
-  WaveIndicator,
+  UIActivityIndicator,
+  WaveIndicator
 } from 'react-native-indicators';
 
 class Example extends Component {
