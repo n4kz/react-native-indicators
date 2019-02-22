@@ -5,22 +5,7 @@ import { Animated, Easing } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
-export default class DotIndicator extends PureComponent {
-  static defaultProps = {
-    animationEasing: Easing.inOut(Easing.ease),
-
-    color: 'rgb(0, 0, 0)',
-    count: 4,
-    size: 16,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class DotIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -73,3 +58,20 @@ export default class DotIndicator extends PureComponent {
     );
   }
 }
+
+DotIndicator.defaultProps = {
+  animationEasing: Easing.inOut(Easing.ease),
+
+  color: 'rgb(0, 0, 0)',
+  count: 4,
+  size: 16,
+};
+
+DotIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
+
+export default DotIndicator;

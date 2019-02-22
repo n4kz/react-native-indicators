@@ -1,33 +1,11 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { View, Animated, Easing } from 'react-native';
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { View, Animated, Easing } from "react-native";
 
-import Indicator from '../indicator';
-import styles from './styles';
+import Indicator from "../indicator";
+import styles from "./styles";
 
-export default class WaveIndicator extends PureComponent {
-  static defaultProps = {
-    animationEasing: Easing.out(Easing.ease),
-    animationDuration: 1600,
-
-    waveFactor: 0.54,
-    waveMode: 'fill',
-
-    color: 'rgb(0, 0, 0)',
-    count: 4,
-    size: 40,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    waveFactor: PropTypes.number,
-    waveMode: PropTypes.oneOf(['fill', 'outline']),
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class WaveIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -77,3 +55,27 @@ export default class WaveIndicator extends PureComponent {
     );
   }
 }
+
+WaveIndicator.defaultProps = {
+  animationEasing: Easing.out(Easing.ease),
+  animationDuration: 1600,
+
+  waveFactor: 0.54,
+  waveMode: "fill",
+
+  color: "rgb(0, 0, 0)",
+  count: 4,
+  size: 40
+};
+
+WaveIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  waveFactor: PropTypes.number,
+  waveMode: PropTypes.oneOf(["fill", "outline"]),
+
+  color: PropTypes.string,
+  size: PropTypes.number
+};
+
+export default WaveIndicator;

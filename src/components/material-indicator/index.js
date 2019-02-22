@@ -5,21 +5,7 @@ import { View, Animated, Easing } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
-export default class MaterialIndicator extends PureComponent {
-  static defaultProps = {
-    animationDuration: 2400,
-
-    color: 'rgb(0, 0, 0)',
-    size: 40,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class MaterialIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -122,3 +108,20 @@ export default class MaterialIndicator extends PureComponent {
     );
   }
 }
+
+
+MaterialIndicator.defaultProps = {
+  animationDuration: 2400,
+
+  color: 'rgb(0, 0, 0)',
+  size: 40,
+};
+
+MaterialIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
+
+export default MaterialIndicator;

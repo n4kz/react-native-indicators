@@ -1,24 +1,11 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { View, Animated } from 'react-native';
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { View, Animated } from "react-native";
 
-import Indicator from '../indicator';
-import styles from './styles';
+import Indicator from "../indicator";
+import styles from "./styles";
 
-export default class UIActivityIndicator extends PureComponent {
-  static defaultProps = {
-    color: 'rgb(0, 0, 0)',
-    count: 12,
-    size: 40,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class UIActivityIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -81,3 +68,18 @@ export default class UIActivityIndicator extends PureComponent {
     );
   }
 }
+
+UIActivityIndicator.defaultProps = {
+  color: "rgb(0, 0, 0)",
+  count: 12,
+  size: 40
+};
+
+UIActivityIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number
+};
+
+export default UIActivityIndicator;
