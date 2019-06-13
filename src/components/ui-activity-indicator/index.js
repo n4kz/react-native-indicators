@@ -14,23 +14,24 @@ class UIActivityIndicator extends PureComponent {
 
   renderComponent({ index, count, progress }) {
     let { size, color: backgroundColor } = this.props;
-    let angle = index * 360 / count;
+    let angle = (index * 360) / count;
 
     let layerStyle = {
-      transform: [{
-        rotate: angle + 'deg',
-      }],
+      transform: [
+        {
+          rotate: angle + "deg"
+        }
+      ]
     };
 
-    let inputRange = Array
-      .from(new Array(count + 1), (undefined, index) =>
-        index / count
-      );
+    let inputRange = Array.from(
+      new Array(count + 1),
+      (undefined, index) => index / count
+    );
 
-    let outputRange = Array
-      .from(new Array(count), (undefined, index) =>
-        Math.max(1.0 - index * (1 / (count - 1)), 0)
-      );
+    let outputRange = Array.from(new Array(count), (undefined, index) =>
+      Math.max(1.0 - index * (1 / (count - 1)), 0)
+    );
 
     for (let j = 0; j < index; j++) {
       outputRange.unshift(outputRange.pop());
@@ -43,8 +44,7 @@ class UIActivityIndicator extends PureComponent {
       height: size / 4,
       borderRadius: size / 20,
       backgroundColor,
-      opacity: progress
-        .interpolate({ inputRange, outputRange }),
+      opacity: progress.interpolate({ inputRange, outputRange })
     };
 
     return (

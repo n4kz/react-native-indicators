@@ -14,24 +14,26 @@ class WaveIndicator extends PureComponent {
 
   renderComponent({ index, count, progress }) {
     let { size, color, waveFactor, waveMode } = this.props;
-    let fill = 'fill' === waveMode;
+    let fill = "fill" === waveMode;
 
     let waveStyle = {
       height: size,
       width: size,
       borderRadius: size / 2,
-      borderWidth: fill? 0 : Math.floor(size / 20),
-      [fill? 'backgroundColor' : 'borderColor']: color,
-      transform: [{
-        scale: progress.interpolate({
-          inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
-          outputRange: [0, 0, 1],
-        }),
-      }],
+      borderWidth: fill ? 0 : Math.floor(size / 20),
+      [fill ? "backgroundColor" : "borderColor"]: color,
+      transform: [
+        {
+          scale: progress.interpolate({
+            inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
+            outputRange: [0, 0, 1]
+          })
+        }
+      ],
       opacity: progress.interpolate({
         inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
-        outputRange: [1, 1, 0],
-      }),
+        outputRange: [1, 1, 0]
+      })
     };
 
     return (
