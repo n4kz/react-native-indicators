@@ -5,21 +5,7 @@ import { View, Animated } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
-export default class BarIndicator extends PureComponent {
-  static defaultProps = {
-    count: 3,
-
-    color: 'rgb(0, 0, 0)',
-    size: 40,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class BarIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -112,3 +98,19 @@ export default class BarIndicator extends PureComponent {
     );
   }
 }
+
+BarIndicator.defaultProps = {
+  count: 3,
+
+  color: 'rgb(0, 0, 0)',
+  size: 40,
+};
+
+BarIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
+
+export default BarIndicator;

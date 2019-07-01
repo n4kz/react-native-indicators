@@ -1,24 +1,11 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { View, Animated } from 'react-native';
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { View, Animated } from "react-native";
 
-import Indicator from '../indicator';
-import styles from './styles';
+import Indicator from "../indicator";
+import styles from "./styles";
 
-export default class UIActivityIndicator extends PureComponent {
-  static defaultProps = {
-    color: 'rgb(0, 0, 0)',
-    count: 12,
-    size: 40,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class UIActivityIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -27,23 +14,24 @@ export default class UIActivityIndicator extends PureComponent {
 
   renderComponent({ index, count, progress }) {
     let { size, color: backgroundColor } = this.props;
-    let angle = index * 360 / count;
+    let angle = (index * 360) / count;
 
     let layerStyle = {
-      transform: [{
-        rotate: angle + 'deg',
-      }],
+      transform: [
+        {
+          rotate: angle + "deg"
+        }
+      ]
     };
 
-    let inputRange = Array
-      .from(new Array(count + 1), (undefined, index) =>
-        index / count
-      );
+    let inputRange = Array.from(
+      new Array(count + 1),
+      (undefined, index) => index / count
+    );
 
-    let outputRange = Array
-      .from(new Array(count), (undefined, index) =>
-        Math.max(1.0 - index * (1 / (count - 1)), 0)
-      );
+    let outputRange = Array.from(new Array(count), (undefined, index) =>
+      Math.max(1.0 - index * (1 / (count - 1)), 0)
+    );
 
     for (let j = 0; j < index; j++) {
       outputRange.unshift(outputRange.pop());
@@ -56,8 +44,7 @@ export default class UIActivityIndicator extends PureComponent {
       height: size / 4,
       borderRadius: size / 20,
       backgroundColor,
-      opacity: progress
-        .interpolate({ inputRange, outputRange }),
+      opacity: progress.interpolate({ inputRange, outputRange })
     };
 
     return (
@@ -81,3 +68,18 @@ export default class UIActivityIndicator extends PureComponent {
     );
   }
 }
+
+UIActivityIndicator.defaultProps = {
+  color: "rgb(0, 0, 0)",
+  count: 12,
+  size: 40
+};
+
+UIActivityIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number
+};
+
+export default UIActivityIndicator;

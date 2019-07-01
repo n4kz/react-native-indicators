@@ -5,28 +5,7 @@ import { View, Animated, Easing } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
-export default class SkypeIndicator extends PureComponent {
-  static defaultProps = {
-    animationDuration: 1600,
-
-    color: 'rgb(0, 0, 0)',
-    count: 5,
-    size: 40,
-
-    minScale: 0.2,
-    maxScale: 1.0,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-
-    minScale: PropTypes.number,
-    maxScale: PropTypes.number,
-  };
-
+class SkypeIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -88,3 +67,27 @@ export default class SkypeIndicator extends PureComponent {
     );
   }
 }
+
+
+SkypeIndicator.defaultProps = {
+  animationDuration: 1600,
+
+  color: "rgb(0, 0, 0)",
+  count: 5,
+  size: 40,
+
+  minScale: 0.2,
+  maxScale: 1.0
+};
+
+SkypeIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number,
+
+  minScale: PropTypes.number,
+  maxScale: PropTypes.number
+};
+
+export default SkypeIndicator;

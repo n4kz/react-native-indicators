@@ -6,28 +6,7 @@ import RN from 'react-native/package';
 const [major, minor] = RN.version.split('.').map((item) => Number(item));
 const hasLoopSupport = !major && minor >= 45;
 
-export default class Indicator extends PureComponent {
-  static defaultProps = {
-    animationEasing: Easing.linear,
-    animationDuration: 1200,
-
-    animating: true,
-    interaction: true,
-
-    count: 1,
-  };
-
-  static propTypes = {
-    animationEasing: PropTypes.func,
-    animationDuration: PropTypes.number,
-
-    animating: PropTypes.bool,
-    interaction: PropTypes.bool,
-
-    renderComponent: PropTypes.func,
-    count: PropTypes.number,
-  };
-
+class Indicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -134,3 +113,27 @@ export default class Indicator extends PureComponent {
     );
   }
 }
+
+
+Indicator.defaultProps = {
+  animationEasing: Easing.linear,
+  animationDuration: 1200,
+
+  animating: true,
+  interaction: true,
+
+  count: 1,
+};
+
+Indicator.propTypes = {
+  animationEasing: PropTypes.func,
+  animationDuration: PropTypes.number,
+
+  animating: PropTypes.bool,
+  interaction: PropTypes.bool,
+
+  renderComponent: PropTypes.func,
+  count: PropTypes.number,
+};
+
+export default Indicator;

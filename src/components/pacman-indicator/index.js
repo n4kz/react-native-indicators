@@ -5,21 +5,7 @@ import { View, Animated, I18nManager } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
-export default class PacmanIndicator extends PureComponent {
-  static defaultProps = {
-    animationDuration: 600,
-
-    color: 'rgb(0, 0, 0)',
-    size: 48,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class PacmanIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -131,3 +117,19 @@ export default class PacmanIndicator extends PureComponent {
     );
   }
 }
+
+PacmanIndicator.defaultProps = {
+  animationDuration: 600,
+
+  color: 'rgb(0, 0, 0)',
+  size: 48,
+};
+
+PacmanIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
+
+export default PacmanIndicator;

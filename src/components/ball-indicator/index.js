@@ -5,20 +5,7 @@ import { View, Animated } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
-export default class BallIndicator extends PureComponent {
-  static defaultProps = {
-    color: 'rgb(0, 0, 0)',
-    count: 8,
-    size: 40,
-  };
-
-  static propTypes = {
-    ...Indicator.propTypes,
-
-    color: PropTypes.string,
-    size: PropTypes.number,
-  };
-
+class BallIndicator extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -84,3 +71,18 @@ export default class BallIndicator extends PureComponent {
     );
   }
 }
+
+BallIndicator.defaultProps = {
+  color: 'rgb(0, 0, 0)',
+  count: 8,
+  size: 40,
+};
+
+BallIndicator.propTypes = {
+  ...Indicator.propTypes,
+
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
+
+export default BallIndicator;
