@@ -38,7 +38,7 @@
   },
 
   "scripts": {
-    "lint": "eslint src example/app.js"
+    "lint": "eslint index.js src example/index.js example/app.js"
   },
 
   "dependencies": {
