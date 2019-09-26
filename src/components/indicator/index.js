@@ -101,15 +101,15 @@ export default class Indicator extends PureComponent {
     this.mounted = false;
   }
 
-  componentWillReceiveProps(props) {
+  componentDidUpdate(prevProps) {
     let { animating } = this.props;
 
-    if (animating ^ props.animating) {
-      if (animating) {
-        this.stopAnimation();
-      } else {
-        this.startAnimation();
-      }
+    if (animating && !prevProps.animating) {
+      this.startAnimation();
+    }
+
+    if (!animating && prevProps.animating) {
+      this.stopAnimation();
     }
   }
 
