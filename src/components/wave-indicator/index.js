@@ -5,6 +5,8 @@ import { View, Animated, Easing } from 'react-native';
 import Indicator from '../indicator';
 import styles from './styles';
 
+const floatEpsilon = Math.pow(2, -23);
+
 export default class WaveIndicator extends PureComponent {
   static defaultProps = {
     animationEasing: Easing.out(Easing.ease),
@@ -38,21 +40,26 @@ export default class WaveIndicator extends PureComponent {
     let { size, color, waveFactor, waveMode } = this.props;
     let fill = 'fill' === waveMode;
 
+    let factor = Math.max(1 - Math.pow(waveFactor, index), floatEpsilon);
+
     let waveStyle = {
       height: size,
       width: size,
       borderRadius: size / 2,
       borderWidth: fill? 0 : Math.floor(size / 20),
       [fill? 'backgroundColor' : 'borderColor']: color,
+
       transform: [{
         scale: progress.interpolate({
-          inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
-          outputRange: [0, 0, 1],
+          inputRange: [factor, 1],
+          outputRange: [0, 1],
+          extrapolate: 'clamp',
         }),
       }],
+
       opacity: progress.interpolate({
-        inputRange: [0, 1 - Math.pow(waveFactor, index), 1],
-        outputRange: [1, 1, 0],
+        inputRange: [0, factor, 1],
+        outputRange: [0, 1, 0],
       }),
     };
 
