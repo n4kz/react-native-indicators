@@ -27,9 +27,10 @@ export default class BarIndicator extends PureComponent {
   }
 
   outputRange(base, index, count, samples) {
-    let range = Array.from(new Array(samples), (undefined, index) => {
-      return base * Math.abs(Math.cos(Math.PI * index / (samples - 1)));
-    });
+    let range = Array
+      .from(new Array(samples), (item, index) =>
+        base * Math.abs(Math.cos(Math.PI * index / (samples - 1)))
+      );
 
     for (let j = 0; j < index * (samples / count); j++) {
       range.unshift(range.pop());
@@ -51,7 +52,7 @@ export default class BarIndicator extends PureComponent {
     while (samples < frames);
 
     let inputRange = Array
-      .from(new Array(samples + 1), (undefined, index) => index / samples);
+      .from(new Array(samples + 1), (item, index) => index / samples);
 
     let
       width  = Math.floor(size / 5),

@@ -40,10 +40,10 @@ export default class SkypeIndicator extends PureComponent {
     let easing = Easing.bezier(0.5, offset, 0.5, 1.0);
 
     let inputRange = Array
-      .from(new Array(frames), (undefined, index) => index / (frames - 1));
+      .from(new Array(frames), (item, index) => index / (frames - 1));
 
     let outputRange = Array
-      .from(new Array(frames), (undefined, index) => easing(index / (frames - 1)) * 360 + 'deg');
+      .from(new Array(frames), (item, index) => easing(index / (frames - 1)) * 360 + 'deg');
 
     let layerStyle = {
       transform: [{

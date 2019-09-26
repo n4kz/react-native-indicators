@@ -113,7 +113,7 @@ export default class Indicator extends PureComponent {
     }
   }
 
-  renderComponent(undefined, index) {
+  renderComponent(item, index) {
     let { progress } = this.state;
     let { renderComponent, count } = this.props;
 

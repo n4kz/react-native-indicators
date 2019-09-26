@@ -33,10 +33,10 @@ export default class MaterialIndicator extends PureComponent {
     let easing = Easing.bezier(0.4, 0.0, 0.7, 1.0);
 
     let inputRange = Array
-      .from(new Array(frames), (undefined, frameIndex) => frameIndex / (frames - 1));
+      .from(new Array(frames), (item, frameIndex) => frameIndex / (frames - 1));
 
     let outputRange = Array
-      .from(new Array(frames), (undefined, frameIndex) => {
+      .from(new Array(frames), (item, frameIndex) => {
         let progress = 2 * frameIndex / (frames - 1);
         let rotation = index?
           +(360 - 15):
