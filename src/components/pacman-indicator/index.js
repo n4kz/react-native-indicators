@@ -71,13 +71,16 @@ export default class PacmanIndicator extends PureComponent {
       return this.renderBlock({ index, count, progress });
     }
 
+    let hf = size / 2;
+    let qr = size / 4;
+
     let pacmanStyle = {
       position: 'absolute',
-
-      top: size / 4,
+      top: qr,
       left: 0,
-      width: size / 2,
-      height: size / 2,
+
+      width: hf,
+      height: hf,
 
       transform: [{
         rotate: progress.interpolate({
@@ -90,28 +93,26 @@ export default class PacmanIndicator extends PureComponent {
     };
 
     let containerStyle = {
-      width: size / 2,
-      height: size / 4,
       overflow: 'hidden',
-    };
 
-    let style = {
-      width: size / 2,
-      height: size / 2,
-      borderRadius: size / 4,
+      width: hf,
+      height: qr,
+
+      ...(index? {
+        top: qr,
+        borderBottomLeftRadius: qr,
+        borderBottomRightRadius: qr,
+      } : {
+        borderTopLeftRadius: qr,
+        borderTopRightRadius: qr,
+      }),
+
       backgroundColor,
     };
 
-    if (index) {
-      containerStyle.top = size / 4;
-      style.top = -size / 4;
-    }
-
     return (
       <Animated.View style={pacmanStyle} key={index}>
-        <View style={containerStyle} collapsable={false}>
-          <Animated.View style={style} />
-        </View>
+        <Animated.View style={containerStyle} />
       </Animated.View>
     );
   }
