@@ -20,13 +20,7 @@ export default class MaterialIndicator extends PureComponent {
     size: PropTypes.number,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.renderComponent = this.renderComponent.bind(this);
-  }
-
-  renderComponent({ index, count, progress }) {
+  _renderComponent = ({ index, count, progress }) => {
     let { size, color, animationDuration } = this.props;
 
     let frames = 60 * animationDuration / 1000;
@@ -112,7 +106,7 @@ export default class MaterialIndicator extends PureComponent {
         </Animated.View>
       </Animated.View>
     );
-  }
+  };
 
   render() {
     let { style, size: width, size: height, ...props } = this.props;
@@ -121,7 +115,7 @@ export default class MaterialIndicator extends PureComponent {
       <View style={[styles.container, style]}>
         <Indicator
           style={{ width, height }}
-          renderComponent={this.renderComponent}
+          renderComponent={this._renderComponent}
           {...props}
           count={2}
         />
