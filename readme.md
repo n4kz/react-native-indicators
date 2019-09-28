@@ -92,10 +92,11 @@ class Example extends Component {
 
 ## MaterialIndicator properties
 
- name       | description         | type   | default
-:---------- |:------------------- | ------:|:------------
- color      | Component color     | String | rgb(0, 0, 0)
- size       | Base component size | Number | 40
+ name       | description           | type   | default
+:---------- |:--------------------- | ------:|:------------
+ color      | Component color       | String | rgb(0, 0, 0)
+ size       | Base component size   | Number | 40
+ trackWidth | Indicator track width | Number | size / 10
 
 ## PacmanIndicator properties
 
