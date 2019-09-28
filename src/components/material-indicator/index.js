@@ -7,7 +7,7 @@ import styles from './styles';
 
 export default class MaterialIndicator extends PureComponent {
   static defaultProps = {
-    animationDuration: 2400,
+    animationDuration: 2000,
 
     color: 'rgb(0, 0, 0)',
     size: 40,
@@ -32,6 +32,9 @@ export default class MaterialIndicator extends PureComponent {
     let frames = 60 * animationDuration / 1000;
     let easing = Easing.bezier(0.4, 0.0, 0.7, 1.0);
 
+    let sa = 15;
+    let ea = 30;
+
     let inputRange = Array
       .from(new Array(frames), (item, frameIndex) => frameIndex / (frames - 1));
 
@@ -39,8 +42,8 @@ export default class MaterialIndicator extends PureComponent {
       .from(new Array(frames), (item, frameIndex) => {
         let progress = 2 * frameIndex / (frames - 1);
         let rotation = index?
-          +(360 - 15):
-          -(180 - 15);
+          +(360 - sa):
+          -(180 - sa);
 
         if (progress > 1.0) {
           progress = 2.0 - progress;
@@ -50,16 +53,18 @@ export default class MaterialIndicator extends PureComponent {
           -1:
           +1;
 
-        return (direction * (180 - 30) * easing(progress) + rotation) + 'deg';
+        return (direction * (180 - (sa + ea)) * easing(progress) + rotation) + 'deg';
       });
 
     let layerStyle = {
       width: size,
       height: size,
       transform: [{
+        rotate: (90 - sa) + 'deg',
+      }, {
         rotate: progress.interpolate({
           inputRange: [0, 1],
-          outputRange: [(0 + 30 + 15) + 'deg', (2 * 360 + 30 + 15) + 'deg'],
+          outputRange: ['0deg', '720deg'],
         }),
       }],
     };
@@ -68,7 +73,9 @@ export default class MaterialIndicator extends PureComponent {
       width: size,
       height: size,
       transform: [{
-        translateY: index? -size / 2 : 0,
+        translateY: index?
+          -size / 2:
+          0,
       }, {
         rotate: progress.interpolate({ inputRange, outputRange }),
       }],
