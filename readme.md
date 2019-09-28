@@ -4,6 +4,7 @@
 [license-url]: https://raw.githubusercontent.com/n4kz/react-native-indicators/master/license.txt
 [example-url]: https://user-images.githubusercontent.com/2055622/28246049-e82c70e8-6a1b-11e7-93cc-8aa6d0d19867.gif
 [indicator]: https://facebook.github.io/react-native/docs/activityindicator.html
+[v014-url]: https://github.com/n4kz/react-native-indicators/releases/tag/0.14.0
 
 # react-native-indicators
 
@@ -23,6 +24,7 @@ Activity indicator collection for React Native
 * Configurable indicator size
 * Native driver based animation
 * Pure javascript implementation
+* Compatible with RN 0.45+, for older versions use [0.14.0][v014-url]
 
 ## Installation
 
