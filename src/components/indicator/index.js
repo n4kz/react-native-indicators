@@ -27,8 +27,6 @@ export default class Indicator extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.renderComponent = this.renderComponent.bind(this);
-
     /*
      *  0 -> 1
      *    | startAnimation
@@ -70,11 +68,7 @@ export default class Indicator extends PureComponent {
 
   startAnimation() {
     let { progress } = this.state;
-    let {
-      interaction,
-      animationEasing,
-      animationDuration,
-    } = this.props;
+    let { interaction, animationEasing, animationDuration } = this.props;
 
     if (0 !== this.animationState) {
       return;
@@ -125,10 +119,7 @@ export default class Indicator extends PureComponent {
 
   resumeAnimation() {
     let { progress } = this.state;
-    let {
-      interaction,
-      animationDuration,
-    } = this.props;
+    let { interaction, animationDuration } = this.props;
 
     if (0 !== this.animationState) {
       return;
@@ -160,9 +151,9 @@ export default class Indicator extends PureComponent {
 
     if ('function' === typeof renderComponent) {
       return renderComponent({ index, count, progress });
-    } else {
-      return null;
     }
+
+    return null;
   }
 
   render() {
@@ -170,7 +161,7 @@ export default class Indicator extends PureComponent {
 
     return (
       <Animated.View {...props}>
-        {Array.from(new Array(count), this.renderComponent)}
+        {Array.from(new Array(count), this.renderComponent, this)}
       </Animated.View>
     );
   }
