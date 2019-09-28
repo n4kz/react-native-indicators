@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Animated, Easing } from 'react-native';
-import RN from 'react-native/package';
-
-const [major, minor] = RN.version.split('.').map((item) => Number(item));
-const hasLoopSupport = !major && minor >= 45;
 
 export default class Indicator extends PureComponent {
   static defaultProps = {
@@ -32,17 +28,47 @@ export default class Indicator extends PureComponent {
     super(props);
 
     this.renderComponent = this.renderComponent.bind(this);
-    this.startAnimation = this.startAnimation.bind(this);
-    this.stopAnimation = this.stopAnimation.bind(this);
+
+    /*
+     *  0 -> 1
+     *    | startAnimation
+     *    | resumeAnimation
+     *
+     *  1 -> -1
+     *    | stopAnimation
+     *
+     * -1 -> 0
+     *    | saveAnimation
+     */
+    this.animationState = 0;
+    this.savedValue = 0;
 
     this.state = {
       progress: new Animated.Value(0),
     };
-
-    this.mounted = false;
   }
 
-  startAnimation({ finished } = {}) {
+  componentDidMount() {
+    let { animating } = this.props;
+
+    if (animating) {
+      this.startAnimation();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    let { animating } = this.props;
+
+    if (animating && !prevProps.animating) {
+      this.resumeAnimation();
+    }
+
+    if (!animating && prevProps.animating) {
+      this.stopAnimation();
+    }
+  }
+
+  startAnimation() {
     let { progress } = this.state;
     let {
       interaction,
@@ -50,12 +76,12 @@ export default class Indicator extends PureComponent {
       animationDuration,
     } = this.props;
 
-    if (!this.mounted || false === finished) {
+    if (0 !== this.animationState) {
       return;
     }
 
-    let animation =
-      Animated.timing(progress, {
+    let animation = Animated
+      .timing(progress, {
         duration: animationDuration,
         easing: animationEasing,
         useNativeDriver: true,
@@ -63,54 +89,69 @@ export default class Indicator extends PureComponent {
         toValue: 1,
       });
 
-    if (hasLoopSupport) {
-      Animated
-        .loop(animation)
-        .start();
-    } else {
-      progress.setValue(0);
-      animation.start(this.startAnimation);
-    }
+    Animated
+      .loop(animation)
+      .start();
 
-    this.setState({ animation });
+    this.animationState = 1;
   }
 
   stopAnimation() {
-    let { animation } = this.state;
+    let { progress } = this.state;
 
-    if (null == animation) {
+    if (1 !== this.animationState) {
       return;
     }
 
-    animation.stop();
+    let listener = progress
+      .addListener(({ value }) => {
+        progress.removeListener(listener);
+        progress.stopAnimation(() => this.saveAnimation(value));
+      });
 
-    this.setState({ animation: null });
+    this.animationState = -1;
   }
 
-  componentDidMount() {
+  saveAnimation(value) {
     let { animating } = this.props;
 
-    this.mounted = true;
+    this.savedValue = value;
+    this.animationState = 0;
 
     if (animating) {
-      this.startAnimation();
+      this.resumeAnimation();
     }
   }
 
-  componentWillUnmount() {
-    this.mounted = false;
-  }
+  resumeAnimation() {
+    let { progress } = this.state;
+    let {
+      interaction,
+      animationDuration,
+    } = this.props;
 
-  componentDidUpdate(prevProps) {
-    let { animating } = this.props;
-
-    if (animating && !prevProps.animating) {
-      this.startAnimation();
+    if (0 !== this.animationState) {
+      return;
     }
 
-    if (!animating && prevProps.animating) {
-      this.stopAnimation();
-    }
+    Animated
+      .timing(progress, {
+        useNativeDriver: true,
+        isInteraction: interaction,
+        duration: (1 - this.savedValue) * animationDuration,
+        toValue: 1,
+      })
+      .start(({ finished }) => {
+        if (finished) {
+          progress.setValue(0);
+
+          this.animationState = 0;
+          this.startAnimation();
+        }
+      });
+
+    this.savedValue = 0;
+    this.animationState = 1;
   }
 
   renderComponent(item, index) {
