@@ -7,7 +7,7 @@ import styles from './styles';
 
 export default class MaterialIndicator extends PureComponent {
   static defaultProps = {
-    animationDuration: 2000,
+    animationDuration: 4000,
 
     color: 'rgb(0, 0, 0)',
     size: 40,
@@ -32,21 +32,28 @@ export default class MaterialIndicator extends PureComponent {
     let frames = 60 * animationDuration / 1000;
     let easing = Easing.bezier(0.4, 0.0, 0.7, 1.0);
 
-    let sa = 15;
+    let sa = 7.5;
     let ea = 30;
+
+    let sequences = 3;
+    let rotations = 5;
 
     let inputRange = Array
       .from(new Array(frames), (item, frameIndex) => frameIndex / (frames - 1));
 
     let outputRange = Array
       .from(new Array(frames), (item, frameIndex) => {
-        let progress = 2 * frameIndex / (frames - 1);
+        let progress = 2 * sequences * frameIndex / (frames - 1);
         let rotation = index?
           +(360 - sa):
           -(180 - sa);
 
-        if (progress > 1.0) {
-          progress = 2.0 - progress;
+        let sequence = Math.ceil(progress);
+
+        if (sequence % 2) {
+          progress = progress - sequence + 1;
+        } else {
+          progress = sequence - progress;
         }
 
         let direction = index?
@@ -64,7 +71,7 @@ export default class MaterialIndicator extends PureComponent {
       }, {
         rotate: progress.interpolate({
           inputRange: [0, 1],
-          outputRange: ['0deg', '720deg'],
+          outputRange: ['0deg', (360 * rotations) + 'deg'],
         }),
       }],
     };
