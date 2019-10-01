@@ -6,9 +6,11 @@ export default class Indicator extends PureComponent {
   static defaultProps = {
     animationEasing: Easing.linear,
     animationDuration: 1200,
+    hideAnimationDuration: 200,
 
     animating: true,
     interaction: true,
+    hidesWhenStopped: true,
 
     count: 1,
   };
@@ -16,9 +18,11 @@ export default class Indicator extends PureComponent {
   static propTypes = {
     animationEasing: PropTypes.func,
     animationDuration: PropTypes.number,
+    hideAnimationDuration: PropTypes.number,
 
     animating: PropTypes.bool,
     interaction: PropTypes.bool,
+    hidesWhenStopped: PropTypes.bool,
 
     renderComponent: PropTypes.func,
     count: PropTypes.number,
@@ -41,8 +45,11 @@ export default class Indicator extends PureComponent {
     this.animationState = 0;
     this.savedValue = 0;
 
+    let { animating } = this.props;
+
     this.state = {
       progress: new Animated.Value(0),
+      hideAnimation: new Animated.Value(animating? 1 : 0),
     };
   }
 
@@ -63,6 +70,15 @@ export default class Indicator extends PureComponent {
 
     if (!animating && prevProps.animating) {
       this.stopAnimation();
+    }
+
+    if (animating ^ prevProps.animating) {
+      let { hideAnimation } = this.state;
+      let { hideAnimationDuration: duration } = this.props;
+
+      Animated
+        .timing(hideAnimation, { toValue: animating? 1 : 0, duration })
+        .start();
     }
   }
 
@@ -157,7 +173,13 @@ export default class Indicator extends PureComponent {
   }
 
   render() {
-    let { count, ...props } = this.props;
+    let { hideAnimation } = this.state;
+    let { count, hidesWhenStopped, ...props } = this.props;
+
+    if (hidesWhenStopped) {
+      props.style = []
+        .concat(props.style || [], { opacity: hideAnimation });
+    }
 
     return (
       <Animated.View {...props}>
