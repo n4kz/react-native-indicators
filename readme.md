@@ -65,6 +65,7 @@ class Example extends Component {
  animationDuration  | Animation duration in ms      |   Number | 1200
  animating          | Animation toggle              |  Boolean | true
  interaction        | Animation is interaction      |  Boolean | true
+ hidesWhenStopped   | Hide when not animating       |  Boolean | true
 
 ## BallIndicator properties
 
