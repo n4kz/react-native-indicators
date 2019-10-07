@@ -1,18 +1,26 @@
 {
   'parser': 'babel-eslint',
 
+  'env': {
+    'es6': true,
+    'react-native/react-native': true,
+  },
+
   'plugins': [
     'react',
+    'react-native'
   ],
-
-  'globals': {
-    'require': true,
-  },
 
   'extends': [
     'eslint:recommended',
     'plugin:react/recommended',
   ],
+
+  'settings': {
+    'react': {
+      'version': '16.9',
+    },
+  },
 
   'rules': {
     'no-unused-vars': ['error', {
@@ -21,7 +29,183 @@
       'ignoreRestSiblings': true,
     }],
 
+    'no-console': ['error'],
+
+    /*
+     * let foo = [1];
+     * let bar = [
+     *   1,
+     * ];
+     */
+    'array-bracket-newline': ['error', 'consistent'],
+
+    /*
+     * let foo = [1, 2, 3];
+     */
+    'array-bracket-spacing': ['error', 'never'],
+
+    /*
+     * if (foo) { bar() }
+     */
+    'block-spacing': ['error', 'always'],
+
+    /*
+     * if (foo) {
+     *   bar();
+     * } else {
+     *   baz();
+     * }
+     */
+    'brace-style': ['error', '1tbs', { 'allowSingleLine': true }],
+
+    /*
+     * let foo = [
+     *   1,
+     * ];
+     */
     'comma-dangle': ['error', 'always-multiline'],
+
+    /*
+     * let foo = [1, 2];
+     */
+    'comma-spacing': ['error', { 'before': false, 'after': true }],
+
+    /*
+     * let foo,
+     *   bar,
+     *   baz;
+     */
+    'comma-style': ['error', 'last'],
+
+    /*
+     * let foo = bar[bar];
+     */
+    'computed-property-spacing': ['error', 'never'],
+
+    /*
+     * let that = this;
+     */
+    'consistent-this': ['error', 'that'],
+
+    /*
+     * call();
+     */
+    'func-call-spacing': ['error', 'never'],
+
+    /*
+     * function bar() { 1; }
+     * let bar = () => 1;
+     */
+    'func-style': ['error', 'declaration', { 'allowArrowFunctions': true }],
+
+    /*
+     * foo(1);
+     * bar(
+     *   2, 3
+     * );
+     */
+    'function-paren-newline': ['error', 'consistent'],
+
+    /*
+     * () => 1;
+     */
+    'implicit-arrow-linebreak': ['error', 'beside'],
+
+    /*
+     * [
+     *   1
+     * ]
+     */
+    'indent': ['warn', 2, { 'SwitchCase': 1 }],
+
+    /*
+     * <View name='foo' />
+     */
+    'jsx-quotes': ['error', 'prefer-single'],
+
+    /*
+     * let foo = { bar: true };
+     */
+    'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
+
+    /*
+     * if (foo) { return; }
+     */
+    'keyword-spacing': ['error', { 'before': true, 'after': true }],
+
+    'linebreak-style': ['error', 'unix'],
+
+    'lines-between-class-members': ['error', 'always'],
+
+    'max-len': ['warn', { 'code': 100, 'ignoreTrailingComments': true }],
+
+    /*
+     * foo(1, 2, 3, 4, 5);
+     */
+    'max-params': ['error', { 'max': 6 }],
+
+    'max-statements-per-line': ['error', { 'max': 1 }],
+
+    'new-parens': ['error'],
+
+    'no-trailing-spaces': ['error'],
+
+    'no-whitespace-before-property': ['error'],
+
+    /*
+     * let foo = { bar, baz };
+     */
+    'object-curly-newline': ['error', { 'consistent': true }],
+    'object-curly-spacing': ['error', 'always'],
+    'object-property-newline': ['error', { 'allowAllPropertiesOnSameLine': true }],
+
+    /*
+     * let foo = 'bar'
+     *   + 'baz';
+     */
+    'operator-linebreak': ['error', 'before', { 'overrides': { '?': 'after', ':': 'after' } }],
+
+    /*
+     * 'bar'
+     */
+    'quotes': ['warn', 'single'],
+
+    /*
+     * 1;
+     */
+    'semi': ['warn', 'always'],
+    'semi-spacing': ['error', { 'before': false, 'after': true }],
+    'semi-style': ['error', 'last'],
+
+    /*
+     * () => {
+     * };
+     */
+    'space-before-blocks': ['error', 'always'],
+
+    /*
+     * foo(1, 2, 3);
+     */
+    'space-before-function-paren': ['error', {
+      'anonymous': 'always',
+      'named': 'never',
+      'asyncArrow': 'always',
+    }],
+
+    /*
+     * foo('bar');
+     */
+    'space-in-parens': ['error', 'never'],
+
+    /*
+     * switch (a) {
+     *   case 0: break;
+     * }
+     */
+    'switch-colon-spacing': ['error', { 'after': true, 'before': false }],
+
+    'react-native/no-unused-styles': ['warn'],
+    'react-native/no-inline-styles': ['warn'],
   },
 }
 
