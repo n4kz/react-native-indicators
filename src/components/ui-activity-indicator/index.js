@@ -36,14 +36,14 @@ export default class UIActivityIndicator extends PureComponent {
     };
 
     let inputRange = Array
-      .from(new Array(count + 1), (item, index) =>
+      .from(new Array(count + 1), (item, index) => (
         index / count
-      );
+      ));
 
     let outputRange = Array
-      .from(new Array(count), (item, index) =>
+      .from(new Array(count), (item, index) => (
         Math.max(1.0 - index * (1 / (count - 1)), 0)
-      );
+      ));
 
     for (let j = 0; j < index; j++) {
       outputRange.unshift(outputRange.pop());
