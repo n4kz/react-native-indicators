@@ -2,6 +2,8 @@
 [npm-url]: https://npmjs.com/package/react-native-indicators
 [license-badge]: https://img.shields.io/npm/l/react-native-indicators.svg?colorB=448aff
 [license-url]: https://raw.githubusercontent.com/n4kz/react-native-indicators/master/license.txt
+[travis-badge]: https://api.travis-ci.org/n4kz/react-native-indicators.svg?branch=master
+[travis-url]: https://travis-ci.org/n4kz/react-native-indicators?branch=master
 [example-url]: https://user-images.githubusercontent.com/2055622/28246049-e82c70e8-6a1b-11e7-93cc-8aa6d0d19867.gif
 [indicator]: https://facebook.github.io/react-native/docs/activityindicator.html
 [v014-url]: https://github.com/n4kz/react-native-indicators/releases/tag/0.14.0
@@ -10,6 +12,7 @@
 
 [![npm][npm-badge]][npm-url]
 [![license][license-badge]][license-url]
+[![travis][travis-badge]][travis-url]
 
 Activity indicator collection for React Native
 
