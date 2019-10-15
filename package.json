@@ -19,7 +19,7 @@
   ],
 
   "main": "index.js",
-  "files": ["index.js", "src/*", "license.txt", "readme.md"],
+  "files": ["index.js", "src/*", "license.txt", "readme.md", "changelog.md"],
 
   "repository": {
     "type": "git",
