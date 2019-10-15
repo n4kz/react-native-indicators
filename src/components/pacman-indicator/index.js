@@ -29,6 +29,14 @@ export default class PacmanIndicator extends PureComponent {
   renderBlock({ index, count, progress }) {
     let { size, color: backgroundColor } = this.props;
 
+    let transform = [{
+      translateX: progress.interpolate({
+        inputRange: [0.5, 1],
+        outputRange: [0, size / (I18nManager.isRTL? 4 : -4)],
+        extrapolate: 'clamp',
+      }),
+    }];
+
     let style = {
       position: 'absolute',
       top: size / 2 - size / 16,
@@ -37,25 +45,22 @@ export default class PacmanIndicator extends PureComponent {
       height: size / 8,
       borderRadius: size / 16,
       backgroundColor,
-      transform: [{
-        translateX: progress.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, size / (I18nManager.isRTL? 4 : -4)],
-        }),
-      }, {
-        scale: count === index + 1?
-          progress.interpolate({
-            inputRange: [0, 0.67, 1],
-            outputRange: [0, 1, 1],
-          }):
-          1,
-      }],
+      transform,
     };
 
-    if (count === index + 1) {
+    if (index === count - 1) {
+      transform.push({
+        scale: progress.interpolate({
+          inputRange: [0, 0.5],
+          outputRange: [0, 1],
+          extrapolate: 'clamp',
+        }),
+      });
+
       style.opacity = progress.interpolate({
-        inputRange: [0, 0.67, 1],
-        outputRange: [0, 1, 1],
+        inputRange: [0, 0.25],
+        outputRange: [0, 1],
+        extrapolate: 'clamp',
       });
     }
 
@@ -88,6 +93,7 @@ export default class PacmanIndicator extends PureComponent {
           outputRange: (index ^ I18nManager.isRTL)?
             ['0deg',  '45deg', '0deg']:
             ['0deg', '-45deg', '0deg'],
+          extrapolate: 'clamp',
         }),
       }],
     };
@@ -120,10 +126,15 @@ export default class PacmanIndicator extends PureComponent {
   render() {
     let { style, size, ...props } = this.props;
 
+    let indicatorStyle = {
+      width: size * 1.25,
+      height: size,
+    };
+
     return (
       <View style={[styles.container, style]}>
         <Indicator
-          style={{ width: size * 1.25, height: size }}
+          style={indicatorStyle}
           renderComponent={this.renderComponent}
           {...props}
           count={5}
