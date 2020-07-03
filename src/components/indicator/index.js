@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { Animated, Easing } from 'react-native';
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { Animated, Easing } from "react-native";
 
 export default class Indicator extends PureComponent {
   static defaultProps = {
@@ -49,7 +49,7 @@ export default class Indicator extends PureComponent {
 
     this.state = {
       progress: new Animated.Value(0),
-      hideAnimation: new Animated.Value(animating? 1 : 0),
+      hideAnimation: new Animated.Value(animating ? 1 : 0),
     };
   }
 
@@ -76,9 +76,11 @@ export default class Indicator extends PureComponent {
       let { hideAnimation } = this.state;
       let { hideAnimationDuration: duration } = this.props;
 
-      Animated
-        .timing(hideAnimation, { toValue: animating? 1 : 0, duration })
-        .start();
+      Animated.timing(hideAnimation, {
+        duration,
+        toValue: animating ? 1 : 0,
+        useNativeDriver: true,
+      }).start();
     }
   }
 
@@ -90,18 +92,15 @@ export default class Indicator extends PureComponent {
       return;
     }
 
-    let animation = Animated
-      .timing(progress, {
-        duration: animationDuration,
-        easing: animationEasing,
-        useNativeDriver: true,
-        isInteraction: interaction,
-        toValue: 1,
-      });
+    let animation = Animated.timing(progress, {
+      duration: animationDuration,
+      easing: animationEasing,
+      useNativeDriver: true,
+      isInteraction: interaction,
+      toValue: 1,
+    });
 
-    Animated
-      .loop(animation)
-      .start();
+    Animated.loop(animation).start();
 
     this.animationState = 1;
   }
@@ -113,11 +112,10 @@ export default class Indicator extends PureComponent {
       return;
     }
 
-    let listener = progress
-      .addListener(({ value }) => {
-        progress.removeListener(listener);
-        progress.stopAnimation(() => this.saveAnimation(value));
-      });
+    let listener = progress.addListener(({ value }) => {
+      progress.removeListener(listener);
+      progress.stopAnimation(() => this.saveAnimation(value));
+    });
 
     this.animationState = -1;
   }
@@ -141,21 +139,19 @@ export default class Indicator extends PureComponent {
       return;
     }
 
-    Animated
-      .timing(progress, {
-        useNativeDriver: true,
-        isInteraction: interaction,
-        duration: (1 - this.savedValue) * animationDuration,
-        toValue: 1,
-      })
-      .start(({ finished }) => {
-        if (finished) {
-          progress.setValue(0);
+    Animated.timing(progress, {
+      useNativeDriver: true,
+      isInteraction: interaction,
+      duration: (1 - this.savedValue) * animationDuration,
+      toValue: 1,
+    }).start(({ finished }) => {
+      if (finished) {
+        progress.setValue(0);
 
-          this.animationState = 0;
-          this.startAnimation();
-        }
-      });
+        this.animationState = 0;
+        this.startAnimation();
+      }
+    });
 
     this.savedValue = 0;
     this.animationState = 1;
@@ -165,7 +161,7 @@ export default class Indicator extends PureComponent {
     let { progress } = this.state;
     let { renderComponent, count } = this.props;
 
-    if ('function' === typeof renderComponent) {
+    if ("function" === typeof renderComponent) {
       return renderComponent({ index, count, progress });
     }
 
@@ -177,8 +173,7 @@ export default class Indicator extends PureComponent {
     let { count, hidesWhenStopped, ...props } = this.props;
 
     if (hidesWhenStopped) {
-      props.style = []
-        .concat(props.style || [], { opacity: hideAnimation });
+      props.style = [].concat(props.style || [], { opacity: hideAnimation });
     }
 
     return (
