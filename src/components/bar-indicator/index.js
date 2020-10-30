@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import { View, Animated } from 'react-native';
 
 import Indicator from '../indicator';
-import styles from './styles';
 
 export default class BarIndicator extends PureComponent {
   static defaultProps = {
@@ -106,7 +105,6 @@ export default class BarIndicator extends PureComponent {
 
     return (
       <Indicator
-        style={[styles.container, style]}
         renderComponent={this.renderComponent}
         {...props}
       />
