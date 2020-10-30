@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import { View, Animated, I18nManager } from 'react-native';
 
 import Indicator from '../indicator';
-import styles from './styles';
 
 export default class PacmanIndicator extends PureComponent {
   static defaultProps = {
@@ -132,7 +131,7 @@ export default class PacmanIndicator extends PureComponent {
     };
 
     return (
-      <View style={[styles.container, style]}>
+      <View>
         <Indicator
           style={indicatorStyle}
           renderComponent={this.renderComponent}

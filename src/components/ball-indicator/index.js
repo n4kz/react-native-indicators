@@ -74,7 +74,7 @@ export default class BallIndicator extends PureComponent {
     let { style, size: width, size: height, ...props } = this.props;
 
     return (
-      <View style={[styles.container, style]}>
+      <View>
         <Indicator
           style={{ width, height }}
           renderComponent={this.renderComponent}

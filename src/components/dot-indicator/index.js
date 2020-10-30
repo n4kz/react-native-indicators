@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import { Animated, Easing } from 'react-native';
 
 import Indicator from '../indicator';
-import styles from './styles';
 
 export default class DotIndicator extends PureComponent {
   static defaultProps = {
@@ -66,7 +65,6 @@ export default class DotIndicator extends PureComponent {
 
     return (
       <Indicator
-        style={[styles.container, style]}
         renderComponent={this.renderComponent}
         {...props}
       />
