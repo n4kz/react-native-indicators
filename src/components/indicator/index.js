@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Platform } from 'react-native';
 
 export default class Indicator extends PureComponent {
   static defaultProps = {
@@ -94,7 +94,7 @@ export default class Indicator extends PureComponent {
       .timing(progress, {
         duration: animationDuration,
         easing: animationEasing,
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== 'web', // Web doesn't support loops if using Native Driver
         isInteraction: interaction,
         toValue: 1,
       });
