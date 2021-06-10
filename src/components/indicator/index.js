@@ -77,7 +77,7 @@ export default class Indicator extends PureComponent {
       let { hideAnimationDuration: duration } = this.props;
 
       Animated
-        .timing(hideAnimation, { toValue: animating? 1 : 0, duration })
+        .timing(hideAnimation, { toValue: animating? 1 : 0, duration, useNativeDriver: true })
         .start();
     }
   }
