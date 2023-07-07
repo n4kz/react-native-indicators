@@ -49,6 +49,7 @@ import {
   SkypeIndicator,
   UIActivityIndicator,
   WaveIndicator,
+  LinearIndicator
 } from 'react-native-indicators';
 
 class Example extends Component {
@@ -145,6 +146,20 @@ class Example extends Component {
  waveMode   | Wave appearance     | String | fill
 
 Possible values for `waveMode` are `fill` and `outline`
+
+
+## LinearIndicator properties
+
+ name            | description            | type   | default
+:--------------- |:---------------------- | ------:|:------------
+ color           | Component color        | String | rgb(76,208,56)
+ height          | Component height       | Number | 16
+ width           | Component width        | Number | 450
+ borderWidth     | Component border width | number | 1
+ borderColor     | Component border color | String | rgb(76,208,56)
+ indicatorColor  | Indicator color        | String | rgb(17, 139, 11)
+ indicatorWidth  | Indicator width        | Number | 50
+ indicatorHeight | Indicator height       | Number | 16
 
 ## Example
 
