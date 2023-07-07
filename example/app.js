@@ -10,7 +10,9 @@ import {
   SkypeIndicator,
   UIActivityIndicator,
   WaveIndicator,
+  LinearIndicator,
 } from 'react-native-indicators';
+
 
 Platform.select({
   ios: () => StatusBar.setBarStyle('light-content'),
@@ -34,6 +36,9 @@ export default function init() {
             <View style={styles.flex}>
               <SkypeIndicator color='white' />
             </View>
+          </View>
+          <View style={styles.flex}>
+            <LinearIndicator color='white' />
           </View>
 
           <View style={styles.row}>
