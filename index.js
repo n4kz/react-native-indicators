@@ -8,6 +8,7 @@ import PulseIndicator from './src/components/pulse-indicator';
 import SkypeIndicator from './src/components/skype-indicator';
 import UIActivityIndicator from './src/components/ui-activity-indicator';
 import WaveIndicator from './src/components/wave-indicator';
+import LinearIndicator from './src/components/linear-indicator'
 
 export {
   Indicator,
@@ -20,4 +21,5 @@ export {
   SkypeIndicator,
   UIActivityIndicator,
   WaveIndicator,
+  LinearIndicator
 };

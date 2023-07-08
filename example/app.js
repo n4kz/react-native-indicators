@@ -10,6 +10,7 @@ import {
   SkypeIndicator,
   UIActivityIndicator,
   WaveIndicator,
+  LinearIndicator
 } from 'react-native-indicators';
 
 Platform.select({
@@ -40,6 +41,7 @@ export default function init() {
             <View style={styles.flex}>
               <WaveIndicator color='white' />
             </View>
+          
 
             <View style={styles.flex}>
               <WaveIndicator color='white' waveMode='outline' />
@@ -86,6 +88,10 @@ export default function init() {
                 color='white'
                 animationDuration={800}
               />
+            </View>
+
+            <View style={styles.flex}>
+              <LinearIndicator  color='white' animationDuration={600}/>
             </View>
           </View>
         </View>
