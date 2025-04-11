@@ -107,7 +107,7 @@ export default class MaterialIndicator extends PureComponent {
     };
 
     return (
-      <Animated.View style={styles.layer} {...{ key: index }}>
+      <Animated.View key={index} style={styles.layer}>
         <Animated.View style={layerStyle}>
           <Animated.View style={[containerStyle, offsetStyle]} collapsable={false}>
             <Animated.View style={viewportStyle}>
