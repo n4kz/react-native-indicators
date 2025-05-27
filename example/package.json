@@ -1,22 +1,23 @@
 {
   "name": "example",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
   "dependencies": {
-    "react": "16.9.0",
-    "react-native": "0.61.1"
+    "expo": "~53.0.9",
+    "expo-asset": "~11.1.5",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-indicators": "file:.."
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
-    "@react-native-community/eslint-config": "^0.0.5",
-    "eslint": "^6.4.0",
-    "metro-react-native-babel-preset": "^0.56.0",
-    "react-native-indicators": "*"
-  }
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
 }

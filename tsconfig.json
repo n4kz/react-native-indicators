@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["es2017", "es2015", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "./lib",
+    "jsx": "react-native",
+    "module": "commonjs"
+  },
+  "include": ["src/**/*", "index.ts"],
+  "exclude": ["node_modules", "lib", "example", "**/*.test.ts", "**/*.test.tsx"]
+}

@@ -5,13 +5,20 @@
  * @format
  */
 
-module.exports = {
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
-  },
-};
+const { getDefaultConfig } = require('expo/metro-config');
+const path = require('path');
+
+const config = getDefaultConfig(__dirname);
+
+// Add the parent directory to the watch folders
+config.watchFolders = [path.resolve(__dirname, '..')];
+
+// Configure resolver to find modules in parent directory
+if (config.resolver) {
+    config.resolver.nodeModulesPaths = [
+        path.resolve(__dirname, 'node_modules'),
+        path.resolve(__dirname, '../node_modules'),
+    ];
+}
+
+module.exports = config; 
