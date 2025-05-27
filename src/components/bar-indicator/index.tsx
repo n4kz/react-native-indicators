@@ -116,7 +116,7 @@ export default class BarIndicator extends PureComponent<BarIndicatorProps> {
     };
 
     return (
-      <View style={containerStyle} {...{ key: index }}>
+      <View style={containerStyle} key={index}>
         <Animated.View style={topStyle} />
         <Animated.View style={bottomStyle} />
       </View>

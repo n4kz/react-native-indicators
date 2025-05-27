@@ -63,7 +63,7 @@ export default class UIActivityIndicator extends PureComponent<UIActivityIndicat
     };
 
     return (
-      <Animated.View style={[styles.layer, layerStyle]} {...{ key: index }}>
+      <Animated.View style={[styles.layer, layerStyle]} key={index}>
         <Animated.View style={barStyle} />
       </Animated.View>
     );

@@ -1,5 +1,5 @@
-import React from 'react';
-import { EasingFunction, ViewStyle, Animated } from 'react-native';
+import React from "react";
+import { EasingFunction, ViewStyle, Animated } from "react-native";
 export interface BaseIndicatorProps {
     animationEasing?: EasingFunction;
     animationDuration?: number;
@@ -44,5 +44,5 @@ export interface UIActivityIndicatorProps extends ColoredIndicatorProps {
 export interface WaveIndicatorProps extends ColoredIndicatorProps {
     count?: number;
     waveFactor?: number;
-    waveMode?: 'fill' | 'outline';
+    waveMode?: "fill" | "outline";
 }

@@ -14,7 +14,8 @@
     "noEmit": false,
     "declaration": true,
     "outDir": "./lib",
-    "jsx": "react-native"
+    "jsx": "react-native",
+    "module": "commonjs"
   },
   "include": ["src/**/*", "index.ts"],
   "exclude": ["node_modules", "lib", "example", "**/*.test.ts", "**/*.test.tsx"]

@@ -63,7 +63,7 @@ export default class WaveIndicator extends PureComponent<WaveIndicatorProps> {
     };
 
     return (
-      <Animated.View style={styles.layer} {...{ key: index }}>
+      <Animated.View style={styles.layer} key={index}>
         <Animated.View style={waveStyle} />
       </Animated.View>
     );

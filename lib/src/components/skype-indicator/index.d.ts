@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { SkypeIndicatorProps } from '../../types';
+import React, { PureComponent } from "react";
+import { SkypeIndicatorProps } from "../../types";
 export default class SkypeIndicator extends PureComponent<SkypeIndicatorProps> {
     static defaultProps: Partial<SkypeIndicatorProps>;
     constructor(props: SkypeIndicatorProps);

@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import { Animated } from 'react-native';
-import { IndicatorProps } from '../../types';
+import React, { PureComponent } from "react";
+import { Animated } from "react-native";
+import { IndicatorProps } from "../../types";
 interface IndicatorState {
     progress: Animated.Value;
     hideAnimation: Animated.Value;

@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { WaveIndicatorProps } from '../../types';
+import React, { PureComponent } from "react";
+import { WaveIndicatorProps } from "../../types";
 export default class WaveIndicator extends PureComponent<WaveIndicatorProps> {
     static defaultProps: Partial<WaveIndicatorProps>;
     constructor(props: WaveIndicatorProps);

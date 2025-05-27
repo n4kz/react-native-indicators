@@ -1,61 +1,37 @@
-# OSX
-#
-.DS_Store
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-project.xcworkspace
-
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
-*.iml
-
-# node.js
-#
+# dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
-*.lock
 
-# BUCK
-buck-out/
-\.buckd/
-*.keystore
-!debug.keystore
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
+# Metro
+.metro-health-check*
 
-# Bundle artifact
-*.jsbundle
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
-# CocoaPods
-/ios/Pods/
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
