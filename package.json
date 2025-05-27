@@ -3,7 +3,6 @@
   "version": "0.17.0",
   "license": "BSD-3-Clause",
   "author": "Alexander Nazarov <n4kz@n4kz.com>",
-
   "description": "Activity indicator collection",
   "keywords": [
     "react",
@@ -17,31 +16,39 @@
     "pacman",
     "material"
   ],
-
-  "main": "index.js",
-  "files": ["index.js", "src/*", "license.txt", "readme.md", "changelog.md"],
-
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/*",
+    "src/*",
+    "license.txt",
+    "readme.md",
+    "changelog.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/n4kz/react-native-indicators.git"
   },
-
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
-
   "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.72.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
     "babel-eslint": "^10.0.0",
-    "eslint": "^6.4.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.1.0",
-    "eslint-plugin-react-native": "^3.7.0"
+    "eslint-plugin-react-native": "^3.7.0",
+    "typescript": "^5.0.0"
   },
-
   "scripts": {
-    "lint": "eslint index.js src example/index.js example/app.js"
+    "lint": "eslint index.ts src/**/*.ts src/**/*.tsx example/index.js example/app.js",
+    "build": "tsc",
+    "prepare": "npm run build"
   },
-
   "dependencies": {
     "prop-types": "^15.5.10"
   }
