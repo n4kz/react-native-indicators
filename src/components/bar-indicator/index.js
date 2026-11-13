@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { View, Animated } from 'react-native';
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { View, Animated } from "react-native";
 
-import Indicator from '../indicator';
-import styles from './styles';
+import Indicator from "../indicator";
+import styles from "./styles";
 
 export default class BarIndicator extends PureComponent {
   static defaultProps = {
     count: 3,
 
-    color: 'rgb(0, 0, 0)',
+    color: "rgb(0, 0, 0)",
     size: 40,
   };
 
@@ -27,10 +27,11 @@ export default class BarIndicator extends PureComponent {
   }
 
   outputRange(base, index, count, samples) {
-    let range = Array
-      .from(new Array(samples), (item, index) => (
-        base * Math.abs(Math.cos(Math.PI * index / (samples - 1)))
-      ));
+    let range = Array.from(
+      new Array(samples),
+      (item, index) =>
+        base * Math.abs(Math.cos((Math.PI * index) / (samples - 1))),
+    );
 
     for (let j = 0; j < index * (samples / count); j++) {
       range.unshift(range.pop());
@@ -44,18 +45,18 @@ export default class BarIndicator extends PureComponent {
   renderComponent({ index, count, progress }) {
     let { color: backgroundColor, size, animationDuration } = this.props;
 
-    let frames = 60 * animationDuration / 1000;
+    let frames = (60 * animationDuration) / 1000;
     let samples = 0;
 
-    do
-      samples += count;
+    do samples += count;
     while (samples < frames);
 
-    let inputRange = Array
-      .from(new Array(samples + 1), (item, index) => index / samples);
+    let inputRange = Array.from(
+      new Array(samples + 1),
+      (item, index) => index / samples,
+    );
 
-    let
-      width  = Math.floor(size / 5),
+    let width = Math.floor(size / 5),
       height = Math.floor(size / 2),
       radius = Math.ceil(width / 2);
 
@@ -71,12 +72,19 @@ export default class BarIndicator extends PureComponent {
       backgroundColor,
       borderTopLeftRadius: radius,
       borderTopRightRadius: radius,
-      transform: [{
-        translateY: progress.interpolate({
-          inputRange,
-          outputRange: this.outputRange(+(height - radius) / 2, index, count, samples),
-        }),
-      }],
+      transform: [
+        {
+          translateY: progress.interpolate({
+            inputRange,
+            outputRange: this.outputRange(
+              +(height - radius) / 2,
+              index,
+              count,
+              samples,
+            ),
+          }),
+        },
+      ],
     };
 
     let bottomStyle = {
@@ -85,16 +93,23 @@ export default class BarIndicator extends PureComponent {
       backgroundColor,
       borderBottomLeftRadius: radius,
       borderBottomRightRadius: radius,
-      transform: [{
-        translateY: progress.interpolate({
-          inputRange,
-          outputRange: this.outputRange(-(height - radius) / 2, index, count, samples),
-        }),
-      }],
+      transform: [
+        {
+          translateY: progress.interpolate({
+            inputRange,
+            outputRange: this.outputRange(
+              -(height - radius) / 2,
+              index,
+              count,
+              samples,
+            ),
+          }),
+        },
+      ],
     };
 
     return (
-      <View style={containerStyle} {...{ key: index }}>
+      <View key={index} style={containerStyle}>
         <Animated.View style={topStyle} />
         <Animated.View style={bottomStyle} />
       </View>
